@@ -55,6 +55,14 @@
     and {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00000011
     or  {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00000100
     xor {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00000101
+
+    shr {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00000110
+    shl {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00000111
+
+    wpl {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00001000
+    wpu {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00001001
+    lpl {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00001010
+    lpu {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00001011
 }
 
 #ruledef

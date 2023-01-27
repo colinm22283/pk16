@@ -25,7 +25,12 @@
 | xor  | 10yyyxxx-00000101 | x: source, y: dest    |
 | shr  | 10yyyxxx-00000110 | x: source, y: dest    |
 | shl  | 10yyyxxx-00000111 | x: source, y: dest    |
+| wpl  | 10yyyxxx-00001000 | x: ptr, y: val        |
+| wpu  | 10yyyxxx-00001001 | x: ptr, y: val        |
+| rdl  | 10yyyxxx-00001010 | x: ptr, y: dest       |
+| rdu  | 10yyyxxx-00001011 | x: ptr, y: dest       |
 | iml  | 11000xxx-yyyyyyyy | x: register, y: value |
 | imu  | 11001xxx-yyyyyyyy | x: register, y: value |
 | adi  | 11010yyy-xxxxxxxx | y: register, x: value |
 | sbi  | 11011yyy-xxxxxxxx | y: register, x: value |
+| wrc  | 11100xxx-yyyyyyyy | x: register, y: value |

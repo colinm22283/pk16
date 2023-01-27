@@ -1,5 +1,8 @@
 #once
 
+#include "7seg.asm"
+#include "delay.asm"
+
 main:
     imm ra, 1
     mov rb, ra
@@ -9,7 +12,14 @@ main:
 
     imm rf, .loop
     .loop:
-        mov ro, ra
+        ; write to 7 segment display
+        psh ra
+        psh rb
+        psh ra
+        imm ra, seg_send_number
+        cal ra
+        pop rb
+        pop ra
 
         mov rc, rb
         add rb, ra
@@ -24,21 +34,5 @@ main:
         pop ra
 
         jno rf
-
-    ret
-
-delay:
-    imm ra, 0
-    cma ra
-
-    pop rb
-    cmb rb
-
-    imm rb, .loop
-
-    .loop:
-        adi ra, 2
-
-        jlt rb
 
     ret
