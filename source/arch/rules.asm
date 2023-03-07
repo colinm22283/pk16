@@ -2,14 +2,14 @@
 
 #subruledef register
 {
-    ra => 0b000
-    rb => 0b001
-    rc => 0b010
-    rd => 0b011
-    re => 0b100
-    rf => 0b101
-    rs => 0b110
-    ro => 0b111
+    a => 0b000
+    b => 0b001
+    c => 0b010
+    d => 0b011
+    e => 0b100
+    f => 0b101
+    stack => 0b110
+    flags => 0b111
 }
 
 #subruledef boolean
@@ -27,7 +27,7 @@
     imu {r: register}, {value: u8} => 0b11001 @ r @ value
     adi {r: register}, {value: u8} => 0b11010 @ r @ value
     sbi {r: register}, {value: u8} => 0b11011 @ r @ value
-    clr {r: register} => 0b01000 @ r @ 0b00000010
+    wrc {r: register}, {value: u8} => 0b11100 @ r @ value
 
     cal {r: register} => 0b01000 @ r @ 0b00000011
     jmp {r: register} => 0b01000 @ r @ 0b00000100
@@ -41,8 +41,10 @@
 
     not {r: register} => 0b01000 @ r @ 0b00001011
 
-    psh {r: register} => 0b01000 @ r @ 0b00001100
-    pop {r: register} => 0b01000 @ r @ 0b00001101
+    psl {r: register} => 0b01000 @ r @ 0b00001100
+    psu {r: register} => 0b01000 @ r @ 0b00001101
+    ppl {r: register} => 0b01000 @ r @ 0b00001110
+    ppu {r: register} => 0b01000 @ r @ 0b00001111
 
     cma {r: register} => 0b01000 @ r @ 0b00001001
     cmb {r: register} => 0b01000 @ r @ 0b00001010
@@ -68,4 +70,7 @@
 #ruledef
 {
     imm {r: register}, {value: u16} => 0b11000 @ r @ value`8 @ 0b11001 @ r @ (value >> 8)`8
+
+    psh {r: register} => 0b01000 @ r @ 0b00001100 @ 0b01000 @ r @ 0b00001101
+    pop {r: register} => 0b01000 @ r @ 0b00001110 @ 0b01000 @ r @ 0b00001111
 }
