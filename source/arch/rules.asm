@@ -39,6 +39,7 @@
     jof {r: register} => 0b01000 @ r @ 0b00001001
     jno {r: register} => 0b01000 @ r @ 0b00001010
 
+    flp {r: register} => 0b01000 @ r @ 0b00000001
     not {r: register} => 0b01000 @ r @ 0b00001011
 
     psl {r: register} => 0b01000 @ r @ 0b00001100
