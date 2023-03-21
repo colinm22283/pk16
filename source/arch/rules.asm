@@ -25,6 +25,7 @@
 
     iml {r: register}, {value: u8} => 0b11000 @ r @ value
     imu {r: register}, {value: u8} => 0b11001 @ r @ value
+    imc {r: register}, {value: u8} => 0b11010 @ r @ value
     adi {r: register}, {value: u8} => 0b11010 @ r @ value
     sbi {r: register}, {value: u8} => 0b11011 @ r @ value
     wrc {r: register}, {value: u8} => 0b11100 @ r @ value

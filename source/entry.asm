@@ -9,4 +9,4 @@
 ;    .interrupt_loop:
 ;        jmp a
 
-#include "/projects/register_blinky/register_blinky.asm"
+#include "/projects/register_fibonacci/main.asm"
