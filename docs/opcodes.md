@@ -14,12 +14,14 @@
 | jof  | 01000xxx-10000101 | x: register           | jumps if overflow flag is set                                                          |
 | jno  | 01000xxx-10000110 | x: register           | jumps if overflow flag not set                                                         |
 | not  | 01000yyy-01011000 | y: register           | bitwise invert a register                                                              |
-| shr  | 01000yyy-01011001 | y: register           | bitwise invert a register                                                              |
-| shl  | 01000yyy-01011010 | y: register           | bitwise invert a register                                                              |
+| rlr  | 01000yyy-01011001 | y: register           | roll a register right 1 bit                                                            |
+| rll  | 01000yyy-01011010 | y: register           | roll a register left 1 bit                                                             |
 | psl  | 01000xxx-00100000 | x: register           | push the lower values of a register to the stack                                       |
 | psu  | 01000xxx-00100001 | x: register           | push the upper values of a register to the stack                                       |
 | ppl  | 01000yyy-00110010 | y: register           | pop the lower value from the stack into a register                                     |
 | ppu  | 01000yyy-00101011 | y: register           | pop the lower value from the stack into a register                                     |
+| cma  | 01001yyy-00000000 | y: register           | pop the lower value from the stack into a register                                     |
+| cmb  | 01001yyy-00000001 | y: register           | pop the lower value from the stack into a register                                     |
 | mov  | 10xxxyyy-01011000 | x: source, y: dest    | move one register to another                                                           |
 | add  | 10xxxyyy-10011000 | x: source, y: dest    | adds two registers and places into y                                                   |
 | sub  | 10xxxyyy-10011001 | x: source, y: dest    | subtracts two registers and places into y                                              |
@@ -48,15 +50,16 @@
     [ reserved : 6 ]
 
 ## Mode 1 [ 01 ] Single Register Operation
-    [ format : 2 ]
-    [ reserved : 3 ]
-    [ register select : 3 ]
-    [ jump instruction : 1 ]
+    [ format              : 2 ]
+    [ reserved            : 2 ]
+    [ compare set         : 1 ]
+    [ register select     : 3 ]
+    [ jump instruction    : 1 ]
     [ logical instruction : 1 ]
-    [ stack instruction : 1 ]
-    [ write lower : 1 ]
-    [ write upper : 1 ]
-    [ operation select : 3 ]
+    [ stack instruction   : 1 ]
+    [ write lower         : 1 ]
+    [ write upper         : 1 ]
+    [ operation select    : 3 ]
 
 ## Mode 2 [ 10 ] Dual Register Operation
     [ format : 2 ]
