@@ -16,7 +16,7 @@
 | or   | returns the bitwise or of the value lines           |
 | xor  | returns the bitwise exclusive or of the value lines |
 | not  | returns the bitwise not of the value_1 line         |
-| pop  | returns the bitwise not of the value_1 line         |
+| pop  | returns the value at the stack head                 |
 
 # Microcode Modifiers
 | name        | description                                 |
