@@ -1,12 +1,14 @@
 #include "/arch/rules.asm"
 #include "/arch/arch.asm"
+#include "/arch/peripheral.asm"
 
 #bank rom
+#addr 0
 ;imm a, main
 ;cal a
 ;interrupt:
-;    imm a, .interrupt_loop
-;    .interrupt_loop:
+;    imm a, .loop
+;    .loop:
 ;        jmp a
 
-#include "/projects/register_fibonacci/main.asm"
+#include "/projects/register_counter/main.asm"

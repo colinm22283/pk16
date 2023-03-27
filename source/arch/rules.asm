@@ -8,7 +8,7 @@
     d => 0b011
     e => 0b100
     f => 0b101
-    stack => 0b110
+    stack => 0b110 ; points to next position in stack
     flags => 0b111
 }
 
@@ -63,12 +63,30 @@
     iml {r: register}, {value: u8} => 0b11000 @ r @ value
     imu {r: register}, {value: u8} => 0b11001 @ r @ value
     imc {r: register}, {value: u8} => 0b11010 @ r @ value
-    adi {r: register}, {value: u8} => 0b11010 @ r @ value
-    sbi {r: register}, {value: u8} => 0b11011 @ r @ value
-    wrc {r: register}, {value: u8} => 0b11100 @ r @ value
-}
+    adi {r: register}, {value: u8} => 0b11011 @ r @ value
+    sbi {r: register}, {value: u8} => 0b11100 @ r @ value
+    wrc {r: register}, {value: u8} => 0b11101 @ r @ value
+    psi {value: u8} => 0b11110000 @ value
 
-#ruledef
-{
     imm {r: register}, {value: u16} => 0b11000 @ r @ value`8 @ 0b11001 @ r @ (value >> 8)`8
+
+    psh {r: register} => asm {
+        psu {r}
+        psl {r}
+    }
+    psh {value: u16} => asm {
+        psi value >> 8
+        psi value
+    }
+
+    pop {r: register} => asm {
+        ppl {r}
+        ppu {r}
+    }
+
+    cal {r: register} => asm {
+        psh ($ + 6)`16
+
+        jmp {r}
+    }
 }
