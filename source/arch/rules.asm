@@ -23,7 +23,6 @@
     ; simple instructions
     nop => 0b00000000 @ 0b00000000
     hlt => 0b00000000 @ 0b10000000
-    ret => 0b00000000 @ 0b01000000
 
     ; single register instructions
     jmp {r: register} => 0b01000 @ r @ 0b10000000

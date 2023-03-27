@@ -2,6 +2,8 @@
 
 #include "/lib/math/pow.asm"
 
+console_port = port.a
+
 console_print_str: ; [ str_ptr, ret ]
     sbi stack, 2
 
@@ -12,7 +14,7 @@ console_print_str: ; [ str_ptr, ret ]
     cmb b
 
     imm c, .loop..exit
-    imm d, console.data
+    imm d, console_port
 
     .loop:
         ldl b, a
@@ -35,7 +37,7 @@ console_print_str: ; [ str_ptr, ret ]
 console_print_char: ; [ char, ret ]
     pop b
     pop a
-    imm c, console.data
+    imm c, console_port
     wrl c, a
     jmp b
 
@@ -71,7 +73,7 @@ console_print_number: ; [ number, digits, ret ]
         cal m_mod
         pop c
         adi c, 48
-        imm b, console.data
+        imm b, console_port
         wrl b, c
 
         pop c
