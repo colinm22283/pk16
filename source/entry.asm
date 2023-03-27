@@ -11,4 +11,4 @@
 ;    .loop:
 ;        jmp a
 
-#include "/projects/register_counter/main.asm"
+#include "/projects/fibonacci/main.asm"

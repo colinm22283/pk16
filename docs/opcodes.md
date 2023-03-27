@@ -4,7 +4,6 @@
 |------|-------------------|-----------------------|----------------------------------------------------------------------------------------|
 | nop  | 00000000-00000000 |                       | no operation                                                                           |
 | hlt  | 00000000-10000000 |                       | return from function and pop from call stack                                           |
-| cal  | 01000xxx-00000010 | x: register           | calls an address inside a register                                                     |
 | jmp  | 01000xxx-10000000 | x: register           | jumps to an address inside a register                                                  |
 | je   | 01000xxx-10000001 | x: register           | jumps if equal                                                                         |
 | jne  | 01000xxx-10000010 | x: register           | jumps if not equal                                                                     |
