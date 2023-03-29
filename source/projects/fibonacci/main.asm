@@ -10,8 +10,8 @@ main:
     iml d, .loop`8
     imu d, .loop >> 8
 
-    iml e, port.a.set`8
-    imu e, port.a.set >> 8
+    iml e, port.a`8
+    imu e, port.a >> 8
 
     .loop:
         mov c, a

@@ -33,10 +33,9 @@
     jof {r: register} => 0b01000 @ r @ 0b10000101
     jno {r: register} => 0b01000 @ r @ 0b10000110
 
-    not {r: register} => 0b01000 @ r @ 0b01011000
+    not {r: register} => 0b01000 @ r @ 0b01011110
 
-    rlr {r: register} => 0b01000 @ r @ 0b01011001
-    rll {r: register} => 0b01000 @ r @ 0b01011010
+    rlr {r: register} => 0b01000 @ r @ 0b01011111
 
     psl {r: register} => 0b01000 @ r @ 0b00100000
     psu {r: register} => 0b01000 @ r @ 0b00100001

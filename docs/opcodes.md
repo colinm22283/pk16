@@ -11,9 +11,8 @@
 | jlt  | 01000xxx-10000100 | x: register           | jumps if less than                                                                     |
 | jof  | 01000xxx-10000101 | x: register           | jumps if overflow flag is set                                                          |
 | jno  | 01000xxx-10000110 | x: register           | jumps if overflow flag not set                                                         |
-| not  | 01000yyy-01011000 | y: register           | bitwise invert a register                                                              |
-| rlr  | 01000yyy-01011001 | y: register           | roll a register right 1 bit                                                            |
-| rll  | 01000yyy-01011010 | y: register           | roll a register left 1 bit                                                             |
+| not  | 01000yyy-01011110 | y: register           | bitwise invert a register                                                              |
+| rlr  | 01000yyy-01011111 | y: register           | roll a register right 1 bit                                                            |
 | psl  | 01000xxx-00100000 | x: register           | push the lower values of a register to the stack                                       |
 | psu  | 01000xxx-00100001 | x: register           | push the upper values of a register to the stack                                       |
 | ppl  | 01000yyy-00110010 | y: register           | pop the lower value from the stack into a register                                     |
@@ -21,11 +20,11 @@
 | cma  | 01001yyy-00000000 | y: register           | pop the lower value from the stack into a register                                     |
 | cmb  | 01001yyy-00000001 | y: register           | pop the lower value from the stack into a register                                     |
 | mov  | 10xxxyyy-01011000 | x: source, y: dest    | move one register to another                                                           |
-| add  | 10xxxyyy-10011000 | x: source, y: dest    | adds two registers and places into y                                                   |
-| sub  | 10xxxyyy-10011001 | x: source, y: dest    | subtracts two registers and places into y                                              |
-| and  | 10xxxyyy-01011000 | x: source, y: dest    | ands two registers and places into y                                                   |
-| or   | 10xxxyyy-01011001 | x: source, y: dest    | ors two registers and places into y                                                    |
-| xor  | 10xxxyyy-01011010 | x: source, y: dest    | xors two registers and places into y                                                   |
+| add  | 10xxxyyy-10011001 | x: source, y: dest    | adds two registers and places into y                                                   |
+| sub  | 10xxxyyy-10011010 | x: source, y: dest    | subtracts two registers and places into y                                              |
+| and  | 10xxxyyy-10011011 | x: source, y: dest    | ands two registers and places into y                                                   |
+| or   | 10xxxyyy-10011100 | x: source, y: dest    | ors two registers and places into y                                                    |
+| xor  | 10xxxyyy-10011101 | x: source, y: dest    | xors two registers and places into y                                                   |
 | wrl  | 10xxxyyy-00100000 | x: ptr, y: val        | write the lower byte of a register to a pointer                                        |
 | wru  | 10xxxyyy-00100001 | x: ptr, y: val        | write the upper byte of a register to a pointer                                        |
 | rdl  | 10xxxyyy-00110010 | x: ptr, y: dest       | read a pointer to the lower byte of a register                                         |
@@ -63,7 +62,7 @@
     [ source register select : 3 ]
     [ destination register select : 3 ]
     [ arithmatic instruction : 1 ]
-    [ logical instruction : 1 ]
+    [ empty : 1 ]
     [ memory instruction : 1 ]
     [ write lower : 1 ]
     [ write upper : 1 ]
