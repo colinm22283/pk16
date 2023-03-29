@@ -4,15 +4,15 @@
 |------|-------------------|-----------------------|----------------------------------------------------------------------------------------|
 | nop  | 00000000-00000000 |                       | no operation                                                                           |
 | hlt  | 00000000-00000001 |                       | return from function and pop from call stack                                           |
-| jmp  | 01000xxx-10000000 | x: register           | jumps to an address inside a register                                                  |
-| je   | 01000xxx-10000001 | x: register           | jumps if equal                                                                         |
-| jne  | 01000xxx-10000010 | x: register           | jumps if not equal                                                                     |
-| jgt  | 01000xxx-10000011 | x: register           | jumps if greater than                                                                  |
-| jlt  | 01000xxx-10000100 | x: register           | jumps if less than                                                                     |
-| jof  | 01000xxx-10000101 | x: register           | jumps if overflow flag is set                                                          |
-| jno  | 01000xxx-10000110 | x: register           | jumps if overflow flag not set                                                         |
-| not  | 01000yyy-01011110 | y: register           | bitwise invert a register                                                              |
-| rlr  | 01000yyy-01011111 | y: register           | roll a register right 1 bit                                                            |
+| jmp  | 01000xxx-01000000 | x: register           | jumps to an address inside a register                                                  |
+| je   | 01000xxx-01000001 | x: register           | jumps if equal                                                                         |
+| jne  | 01000xxx-01000010 | x: register           | jumps if not equal                                                                     |
+| jgt  | 01000xxx-01000011 | x: register           | jumps if greater than                                                                  |
+| jlt  | 01000xxx-01000100 | x: register           | jumps if less than                                                                     |
+| jof  | 01000xxx-01000101 | x: register           | jumps if overflow flag is set                                                          |
+| jno  | 01000xxx-01000110 | x: register           | jumps if overflow flag not set                                                         |
+| not  | 01000yyy-10011110 | y: register           | bitwise invert a register                                                              |
+| rlr  | 01000yyy-10011111 | y: register           | roll a register right 1 bit                                                            |
 | psl  | 01000xxx-00100000 | x: register           | push the lower values of a register to the stack                                       |
 | psu  | 01000xxx-00100001 | x: register           | push the upper values of a register to the stack                                       |
 | ppl  | 01000yyy-00110010 | y: register           | pop the lower value from the stack into a register                                     |
@@ -50,8 +50,8 @@
     [ reserved            : 2 ]
     [ compare set         : 1 ]
     [ register select     : 3 ]
-    [ jump instruction    : 1 ]
     [ logical instruction : 1 ]
+    [ jump instruction    : 1 ]
     [ stack instruction   : 1 ]
     [ write lower         : 1 ]
     [ write upper         : 1 ]
@@ -61,7 +61,7 @@
     [ format : 2 ]
     [ source register select : 3 ]
     [ destination register select : 3 ]
-    [ arithmatic instruction : 1 ]
+    [ logical instruction : 1 ]
     [ empty : 1 ]
     [ memory instruction : 1 ]
     [ write lower : 1 ]
