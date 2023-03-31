@@ -3,6 +3,8 @@
 #bank rom
 #addr 0
 
+#include "/lib/keyboard.asm"
+
 main:
     imc a, 1
     mov b, a
