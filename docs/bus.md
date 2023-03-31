@@ -17,13 +17,16 @@
 | value 2           | 16    | value 2                                                                                                                               |
 | write value       | 16    | value to write to register 1                                                                                                          |
 | instruction stage | 3     | shifts up on every clock cycle after instruction has been read, instruction must be completed before stage is 0                       |
-| jump              | 1     | determines if the chosen comparison is true                                                                                           |
+| jump              | 1     | jumps to value 1 if comparison is true                                                                                                |
 | write lower       | 1     | writes the lower bits of write value to the lower bits of value 1                                                                     |
 | write upper       | 1     | writes the upper bits of write value to the upper bits of value 1                                                                     |
 | write mem         | 1     | writes value value 1 to address specified by value 2                                                                                  |
 | read mem          | 1     | reads address specified by value 2 to value 1                                                                                         |
 | stack             | 1     | signifies a stack operation 0: push lower, 1: push upper, 2: pop lower, 3: pop upper                                                  |
 | compare           | 1     | activates jump if condition true 0: unconditional, 1: equal, 2: not equal, 3: greater than, 4: less than, 5: overflow, 6: no overflow |
-| logical           | 1     | operates on value 1 and value 2 and sends it down write value 0: none, 1: add, 2: sub, 3: and, 4: or, 5: xor, 6: not, 7: rlr          |
+| logical           | 1     | operates on value 1 and value 2 and sends it down write value 0: move, 1: add, 2: sub, 3: and, 4: or, 5: xor, 6: not, 7: rlr          |
 | compare set       | 1     | jumps to value 1 on comparison true                                                                                                   |
+| flip mem          | 1     | flips the write value and the read value from mem                                                                                     |
+| memory            | 1     | signifies a memory operation 0: write lower, 1: write upper, 2: read lower, 3: read upper                                             |
+| simple            | 1     | signifies a simple operation 0: nop, 1: halt                                                                                          |
 | operation select  | 8     | sub operation select                                                                                                                  |

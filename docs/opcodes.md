@@ -17,9 +17,9 @@
 | psu  | 01000xxx-00100001 | x: register           | push the upper values of a register to the stack                                       |
 | ppl  | 01000yyy-00110010 | y: register           | pop the lower value from the stack into a register                                     |
 | ppu  | 01000yyy-00101011 | y: register           | pop the lower value from the stack into a register                                     |
-| cma  | 01001yyy-00000000 | y: register           | pop the lower value from the stack into a register                                     |
-| cmb  | 01001yyy-00000001 | y: register           | pop the lower value from the stack into a register                                     |
-| mov  | 10xxxyyy-01011000 | x: source, y: dest    | move one register to another                                                           |
+| cma  | 01001yyy-00000000 | y: register           | set the comparison A register                                                          |
+| cmb  | 01001yyy-00000001 | y: register           | set the comparison B register                                                          |
+| mov  | 10xxxyyy-10011000 | x: source, y: dest    | move one register to another                                                           |
 | add  | 10xxxyyy-10011001 | x: source, y: dest    | adds two registers and places into y                                                   |
 | sub  | 10xxxyyy-10011010 | x: source, y: dest    | subtracts two registers and places into y                                              |
 | and  | 10xxxyyy-10011011 | x: source, y: dest    | ands two registers and places into y                                                   |
