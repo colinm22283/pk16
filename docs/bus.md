@@ -10,7 +10,7 @@
 | write value                 | 16    | carries the write register value       |
 
 # Bus Spec
-#### Width: ```68 bits```
+#### Width: ```71 bits```
 | name              | width | description                                                                                                                           |
 |-------------------|-------|---------------------------------------------------------------------------------------------------------------------------------------|
 | value 1           | 16    | value 1 available for register write                                                                                                  |
@@ -21,7 +21,7 @@
 | write lower       | 1     | writes the lower bits of write value to the lower bits of value 1                                                                     |
 | write upper       | 1     | writes the upper bits of write value to the upper bits of value 1                                                                     |
 | write mem         | 1     | writes value value 1 to address specified by value 2                                                                                  |
-| read mem          | 1     | reads address specified by value 2 to value 1                                                                                         |
+| read mem          | 1     | reads address specified by value 2 to write value                                                                                     |
 | stack             | 1     | signifies a stack operation 0: push lower, 1: push upper, 2: pop lower, 3: pop upper                                                  |
 | compare           | 1     | activates jump if condition true 0: unconditional, 1: equal, 2: not equal, 3: greater than, 4: less than, 5: overflow, 6: no overflow |
 | logical           | 1     | operates on value 1 and value 2 and sends it down write value 0: move, 1: add, 2: sub, 3: and, 4: or, 5: xor, 6: not, 7: rlr          |
