@@ -1,4 +1,4 @@
 #once
 
-#include "kbd.asm"
+#include "config.asm"
 

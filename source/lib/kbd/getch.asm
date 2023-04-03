@@ -1,4 +1,4 @@
-#include "kbd.asm"
+#include "config.asm"
 
 #bank rom
 kbd_getch: ; [ ret ]

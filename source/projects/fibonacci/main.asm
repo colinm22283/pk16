@@ -1,4 +1,4 @@
- #once
+#once
 
 #bank rom
 main:

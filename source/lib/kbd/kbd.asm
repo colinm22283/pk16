@@ -1,3 +1,4 @@
 #once
 
-kbd_port = port.a
+#include "getch.asm"
+#include "getstr.asm"

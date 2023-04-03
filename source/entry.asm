@@ -12,4 +12,4 @@ interrupt:
     .loop:
         jmp a
 
-#include "/projects/fibonacci/main.asm"
+#include "/projects/plain/main.asm"
