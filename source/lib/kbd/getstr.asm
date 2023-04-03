@@ -1,0 +1,4 @@
+#once
+
+#include "kbd.asm"
+

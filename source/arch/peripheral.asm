@@ -1,5 +1,6 @@
-#bank peripheral
+#once
 
+#bank peripheral
 port:
     .a: #res 1
     .b: #res 1
