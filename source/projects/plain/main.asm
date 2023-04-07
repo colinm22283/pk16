@@ -13,10 +13,12 @@ main:
     adi stack, width * height
     ; zero out board
     psh f
+    psh f
     psi 0x00
     psh width * height
     imm a, memset
     cal a
+    pop f
 
     .loop:
         ; get inputs
@@ -51,3 +53,6 @@ main:
 
     ; free board
     sbi stack, width * height
+
+    pop a
+    jmp a
