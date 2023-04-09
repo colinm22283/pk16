@@ -1,5 +1,13 @@
 #bank rom
 
+imc a, 0
+imc b, 1
+imm c, loop
+loop:
+    add a, b
+
+    jmp c
+
 main:
     imm a, 0xAAAA
     imm b, 0xBBBB

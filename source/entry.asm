@@ -16,4 +16,4 @@
 
 ;#include "/lib/heap/init.asm"
 
-#include "/projects/register_test/main.asm"
+#include "/projects/fibonacci/main.asm"

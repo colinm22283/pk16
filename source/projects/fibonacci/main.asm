@@ -8,8 +8,8 @@ main:
     iml d, .loop`8
     imu d, .loop >> 8
 
-    iml e, port.a`8
-    imu e, port.a >> 8
+    ; iml e, port.a`8
+    ; imu e, port.a >> 8
 
     .loop:
         mov c, a
@@ -17,6 +17,6 @@ main:
         add b, c
 
         ; output number through porta
-        wrl e, a
+        ; wrl e, a
 
-        jno d
+        jmp d

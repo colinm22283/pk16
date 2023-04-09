@@ -25,13 +25,13 @@
     hlt => 0b00000000 @ 0b00000001
 
     ; single register instructions
-    jmp {r: register} => 0b01000 @ r @ 0b10000000
-    je  {r: register} => 0b01000 @ r @ 0b10000001
-    jne {r: register} => 0b01000 @ r @ 0b10000010
-    jgt {r: register} => 0b01000 @ r @ 0b10000011
-    jlt {r: register} => 0b01000 @ r @ 0b10000100
-    jof {r: register} => 0b01000 @ r @ 0b10000101
-    jno {r: register} => 0b01000 @ r @ 0b10000110
+    jmp {r: register} => 0b01000 @ r @ 0b01000000
+    je  {r: register} => 0b01000 @ r @ 0b01000001
+    jne {r: register} => 0b01000 @ r @ 0b01000010
+    jgt {r: register} => 0b01000 @ r @ 0b01000011
+    jlt {r: register} => 0b01000 @ r @ 0b01000100
+    jof {r: register} => 0b01000 @ r @ 0b01000101
+    jno {r: register} => 0b01000 @ r @ 0b01000110
 
     not {r: register} => 0b01000 @ r @ 0b01011110
 
