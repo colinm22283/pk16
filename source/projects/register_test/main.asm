@@ -1,9 +1,18 @@
 #bank rom
 
 main:
-    iml a, 0b10101010
-    imu a, 0b10101010
+    imm a, 0xAAAA
+    imm b, 0xBBBB
 
+    mov c, a
+
+    imc a, 3
+    imc b, 4
+    add a, b
+
+    nop
+    nop
+    nop
     nop
     nop
     nop

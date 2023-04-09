@@ -46,12 +46,13 @@
     cmb {r: register} => 0b01001 @ r @ 0b00000001
 
     ; 2 register instructions
-    mov {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b01011000
-    add {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10011000
-    sub {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10011001
-    and {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10110000
-    or  {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10110001
-    xor {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10110010
+    mov {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10011000
+    add {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10011001
+    sub {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10011010
+    and {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10110011
+    or  {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10110100
+    xor {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10110101
+
     wrl {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00100000
     wru {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00100001
     ldl {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00100010
@@ -66,7 +67,10 @@
     wrc {r: register}, {value: u8} => 0b11101 @ r @ value
     psi {value: u8} => 0b11110000 @ value
 
-    imm {r: register}, {value: u16} => 0b11000 @ r @ value`8 @ 0b11001 @ r @ (value >> 8)`8
+    imm {r: register}, {value: u16} => asm {
+        imu {r}, (value >> 8)`8
+        iml {r}, value`8
+    }
 
     psh {r: register} => asm {
         psu {r}
