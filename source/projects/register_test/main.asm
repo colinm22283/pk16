@@ -19,9 +19,7 @@ rom_func: ; f: return
     jmp f
 
 main:
-    jmp skip
-
-    imm a, rom_func + 17
+    imm a, rom_func + 22
     cmb a
 
     imm a, rom_func
@@ -37,8 +35,6 @@ main:
         adi b, 1
 
         jlt d
-
-    .skip:
 
     imm a, ram_func
     imm f, $ + 6
