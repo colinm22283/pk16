@@ -11,6 +11,10 @@ main:
     ; iml e, port.a`8
     ; imu e, port.a >> 8
 
+    cma a
+    imm c, 10000
+    cmb c
+
     .loop:
         mov c, a
         mov a, b
@@ -19,4 +23,10 @@ main:
         ; output number through porta
         ; wrl e, a
 
-        jmp d
+        jlt d
+
+
+interrupt:
+    imm a, .loop
+    .loop:
+        jmp a

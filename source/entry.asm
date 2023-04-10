@@ -16,4 +16,4 @@
 
 ;#include "/lib/heap/init.asm"
 
-#include "/projects/fibonacci/main.asm"
+#include "/projects/register_exponential/main.asm"
