@@ -1,50 +1,17 @@
 #bank rom
 
-imc a, 0
-imc b, 1
-imm c, loop
-loop:
-    add a, b
-
-    jmp c
+#bank rom
 
 main:
-    imm a, 0xAAAA
-    imm b, 0xBBBB
+    imc a, 1
+    rlr a
+    rlr a
+    rlr a
+    rlr a
+    rlr a
+    rlr a
 
-    mov c, a
-
-    imc a, 3
-    imc b, 4
-    add a, b
-
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-
-    xor a, a
     not a
-    add a, a
-    not a
-    ; a contains 1
-
-    mov b, a
-    add b, a
-
-    mov c, b
-    add c, b
-
-    mov d, c
-    add d, c
-
-    mov e, d
-    add e, d
-
-    mov f, e
-    add f, e
 
     imm a, interrupt
     jmp a
