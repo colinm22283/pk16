@@ -34,7 +34,7 @@
 | imc  | 11010yyy-xxxxxxxx | y: register, x: value | writes an immediate value to the lower byte of a register and zeros out the upper byte |
 | adi  | 11011yyy-xxxxxxxx | y: register, x: value | add an immediate value to a register                                                   |
 | sbi  | 11100yyy-xxxxxxxx | y: register, x: value | subtract an immediate value to a register                                              |
-| wrc  | 11101yyy-xxxxxxxx | y: ptr, x: value      | write an immediate value to a pointer                                                  |
+| wri  | 11101yyy-xxxxxxxx | y: ptr, x: value      | write an immediate value to a pointer                                                  |
 | psi  | 11110000-yyyyyyyy | y: value              | push an immediate value to the stack                                                   |
 
 # Opcode Formats

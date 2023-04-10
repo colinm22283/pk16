@@ -52,10 +52,10 @@
     or  {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10110100
     xor {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10110101
 
-    wrl {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00100000
-    wru {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00100001
-    ldl {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00100010
-    ldu {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b00100011
+    wrl {ptr: register}, {reg: register} => 0b10 @ ptr @ reg @ 0b00100000
+    wru {ptr: register}, {reg: register} => 0b10 @ ptr @ reg @ 0b00100001
+    ldl {reg: register}, {ptr: register} => 0b10 @ ptr @ reg @ 0b00110010
+    ldu {reg: register}, {ptr: register} => 0b10 @ ptr @ reg @ 0b00101011
 
     ; immediate instructions
     iml {r: register}, {value: u8} => 0b11000 @ r @ value
@@ -63,7 +63,7 @@
     imc {r: register}, {value: u8} => 0b11010 @ r @ value
     adi {r: register}, {value: u8} => 0b11011 @ r @ value
     sbi {r: register}, {value: u8} => 0b11100 @ r @ value
-    wrc {r: register}, {value: u8} => 0b11101 @ r @ value
+    wri {r: register}, {value: u8} => 0b11101 @ r @ value
     psi {value: u8} => 0b11110000 @ value
 
     imm {r: register}, {value: u16} => asm {
