@@ -8,8 +8,7 @@ imm stack, stack_offset
 ;imm a, heap_init
 ;cal a
 imm a, main
-;cal a
-jmp a
+cal a
 interrupt:
     imm a, .loop
     .loop:
@@ -17,4 +16,4 @@ interrupt:
 
 ;#include "/lib/heap/init.asm"
 
-#include "/projects/stack_test/main.asm"
+#include "/projects/array_test/main.asm"

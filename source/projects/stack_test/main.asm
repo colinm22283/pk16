@@ -2,27 +2,24 @@
 
 #include "/lib/math/mult.asm"
 
-main:
-    imc a, 0xAA
-    psl a
+main: ; [ ret ]
+    imc a, 2
 
-    nop
+    .loop:
+        mov flags, a
 
-    imm a, 0xF00F
-    psu a
-    psl a
+        psh a
+        psh a
+        imm a, m_mult
+        cal a
+        pop a
 
-    nop
+        cma a
+        imm b, 10000
+        cmb b
+        imm b, .loop
+        jlt b
 
-    imm a, 10
-    psh a
-    imm 1, 5
-    psh 1
-    imm a, m_mult
-    nop
-    cal a
-
-    pop b
-
-    imm a, interrupt
+    ; return from main
+    pop a
     jmp a

@@ -5,14 +5,12 @@
 ; takes two 16 bit integers and returns the product
 m_mult: ; [ arg0, arg1, ret ]
     sbi stack, 2
+    pop c
     pop b
-    pop a
-
-    imc c, 0
-    cmb c
-
-    mov c, b
     cma c
+
+    imc a, 0
+    cmb a
 
     imm d, .loop
 

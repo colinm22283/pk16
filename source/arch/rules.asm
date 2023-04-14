@@ -66,6 +66,9 @@
     wri {r: register}, {value: u8} => 0b11101 @ r @ value
     psi {value: u8} => 0b11110000 @ value
 
+    imm {r: register}, {value: u8} => asm {
+        imc {r}, value
+    }
     imm {r: register}, {value: u16} => asm {
         imu {r}, (value >> 8)`8
         iml {r}, value`8
