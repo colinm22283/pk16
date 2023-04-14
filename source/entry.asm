@@ -17,4 +17,4 @@ interrupt:
 
 ;#include "/lib/heap/init.asm"
 
-#include "/projects/register_test/main.asm"
+#include "/projects/stack_test/main.asm"
