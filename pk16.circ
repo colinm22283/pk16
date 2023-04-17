@@ -113,8 +113,8 @@
   <lib desc="#BFH-Praktika" name="9"/>
   <lib desc="#Input/Output-Extra" name="10"/>
   <lib desc="#Soc" name="11"/>
-  <lib desc="file#modules\logi7400\logi7400dip.circ" name="12"/>
-  <lib desc="file#modules\74x_library.circ" name="13"/>
+  <lib desc="file#modules/logi7400/logi7400dip.circ" name="12"/>
+  <lib desc="file#modules/74x_library.circ" name="13"/>
   <main name="version_2"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -3311,7 +3311,7 @@
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 15 8
 ce 80 c6 0 d0 1a f0 0
-f0 c 40 40 c8 1 c0 12
+f0 c 40 40 c8 1 c0 16
 f0 0 f0 16 40 40 d0 18
 40 40 c8 3 c0 fe c9 84
 c1 0 88 21 d9 1 88 20
@@ -3332,24 +3332,29 @@ a8 9a e0 2 98 21 db 1
 45 2b e5 2 6*0 a8 2b dd
 1 a8 32 c9 7f c1 ff 81
 9b a8 98 8d 99 dd 1 aa
-2b dd 1 aa 32 cb 80 c3
-0 93 9b 4b 0 d4 0 4c
-1 d4 d6 44 42 91 99 81
-20 e0 1 81 21 d0 dc 40
-40 81 20 e0 1 81 21 de
-4 40 32 40 2b e6 2 40
-40 e6 2 42 32 42 2b 41
-32 40 32 40 2b 82 99 4a
-1 48 0 d2 fe cb 1 c3
-6 43 41 81 20 d8 1 42
-40 b0 98 d8 5 81 2b d8
-1 81 32 41 40 f0 0 f0
-a d0 2e f0 1 f0 1e 40
-40 40 32 40 2b 40 21 40
-20 40 21 40 20 f0 5 f0
-0 f0 a d0 e6 f0 1 f0
-38 40 40 d0 94 f0 1 f0
-4*40 32 40 2b 40 40
+2b dd 1 aa 32 d9 2 cb
+80 c3 0 93 9b 4b 0 d4
+0 4c 1 d4 d8 44 42 91
+99 81 20 e0 1 81 21 d0
+de 40 40 81 20 e0 1 81
+21 de 4 40 32 40 2b e6
+2 40 40 e6 2 42 32 42
+2b 41 32 40 32 40 2b 82
+99 4a 1 48 0 ca 1 c2
+2 cb 1 c3 a 43 41 81
+20 d8 1 42 40 b0 98 d8
+5 81 2b d8 1 81 32 41
+40 f0 0 f0 32 d0 2e f0
+1 f0 22 40 40 f0 0 f0
+a d0 2e f0 1 f0 2e 40
+40 40 32 40 2b 41 32 41
+2b 40 21 40 20 41 21 41
+20 41 21 41 20 f0 aa f0
+0 f0 32 d0 e8 f0 1 f0
+50 40 40 d0 94 f0 1 f0
+58 40 40 d0 94 f0 1 f0
+60 40 40 40 32 40 2b 40
+40
 </a>
     </comp>
     <wire from="(340,730)" to="(360,730)"/>

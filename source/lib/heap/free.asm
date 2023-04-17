@@ -1,14 +1,10 @@
 #once
 
-free: ; [ ptr, ret ]
+free: ; [ ptr, ret ] not quite working
     sbi stack, 2
     pop f
     sbi f, 2
     ; f contains the address of the tag
-
-    nop
-    nop
-    nop
 
     ldu a, f
     adi f, 1
@@ -35,9 +31,6 @@ free: ; [ ptr, ret ]
     ; c contains the next tag
     ; f contains the address of the next tag + 1
 
-    adi b, 2
-    ; b contains what the tag should be if next is not free/
-
     imm d, 0x8000
     and d, c
     cma d
@@ -49,6 +42,7 @@ free: ; [ ptr, ret ]
         ; c contians the size of the next tag
 
         add b, c
+        adi b, 2
         ; b contains the size of the new tag
 
         wrl a, b
