@@ -68,11 +68,6 @@ malloc: ; [ size, ret ]
     adi d, 1
     wrl d, a
 
-    nop
-    nop
-    nop
-    nop
-
     ; return
     mov a, stack
     ldu b, a
