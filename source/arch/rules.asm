@@ -9,7 +9,7 @@
     e => 0b100
     f => 0b101
     stack => 0b110 ; points to next position in stack
-    flags => 0b111
+    pptr => 0b111  ; points to the next instruction (read only)
 }
 
 #subruledef boolean
@@ -48,9 +48,9 @@
     mov {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10011000
     add {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10011001
     sub {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10011010
-    and {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10110011
-    or  {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10110100
-    xor {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10110101
+    and {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10011011
+    or  {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10011100
+    xor {rd: register}, {rs: register} => 0b10 @ rs @ rd @ 0b10011101
 
     wrl {ptr: register}, {reg: register} => 0b10 @ ptr @ reg @ 0b00100000
     wru {ptr: register}, {reg: register} => 0b10 @ ptr @ reg @ 0b00100001
@@ -79,8 +79,8 @@
         psl {r}
     }
     psh {value: u16} => asm {
-        psi value >> 8
-        psi value
+        psi (value >> 8)`8
+        psi value`8
     }
 
     pop {r: register} => asm {

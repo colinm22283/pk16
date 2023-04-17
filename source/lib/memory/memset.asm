@@ -3,7 +3,6 @@
 memset: ; [ dest, value : 1, size, ret ]
     sbi stack, 2
     pop c ; size
-    imu b, 0
     ppl b
     pop a
 
@@ -17,6 +16,8 @@ memset: ; [ dest, value : 1, size, ret ]
         je  d
 
         wrl a, b
+
+        adi a, 1
 
         jmp c
     ..break:

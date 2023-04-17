@@ -6,7 +6,7 @@ main: ; [ ret ]
     imc a, 2
 
     .loop:
-        mov flags, a
+        mov pptr, a
 
         psh a
         psh a

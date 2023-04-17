@@ -1,34 +1,24 @@
 #once
 
 #include "/lib/heap/heap.asm"
+#include "/lib/memory/memset.asm"
 
 main: ; [ ret ]
-    psh 100
+    psh 10
     imm a, malloc
     cal a
     ; [ 1 ]
 
-    psh 100
-    imm a, malloc
-    cal a
-    ; [ 1, 2 ]
+    pop a
+    psh a
+    psh a
+    ; [ 1, 1 ]
 
-    pop f
-    pop e
-    psh f
-
-    psh e
-    imm a, free
+    psi 5
+    psh 10
+    imm a, memset
     cal a
-    ; [ 2 ]
 
-    psh 50
-    imm a, malloc
-    cal a
-    ; [ 2, 3 ]
-
-    imm a, free
-    cal a
     imm a, free
     cal a
 
