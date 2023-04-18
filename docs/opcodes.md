@@ -43,7 +43,7 @@
     [ format : 2 ]
     [ reserved : 6 ]
     [ halt : 1 ]
-    [ reserved : 6 ]
+    [ reserved : 7 ]
 
 ## Mode 1 [ 01 ] Single Register Operation
     [ format              : 2 ]
