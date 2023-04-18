@@ -16,4 +16,7 @@ interrupt:
 
 #include "/lib/heap/init.asm"
 
-#include "/projects/display_test/main.asm"
+#include "/projects/keyboard_test/main.asm"
+
+imm a, interrupt
+jmp a

@@ -1,14 +1,14 @@
 #once
 
 #bank peripheral
-port:
-    .a: #res 1
-    .b: #res 1
-
-peripheral_bus:
-    .a: #res 3
-    .b: #res 3
+pbus:
+    .internal:
+        ..a: #res 3
+    .ps2:
+        ..a: #res 1
+        ..b: #res 1
 
 flags: #res 1
-    .carry       = 0b00000001
-    .reserved    = 0b11111110
+    .carry_out   = 0b00000001
+    .carry_in    = 0b00000010
+    .reserved    = 0b11111100

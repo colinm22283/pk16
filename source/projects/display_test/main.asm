@@ -1,6 +1,6 @@
 #once
 
-#include "/lib/display/draw_image.asm"
+#include "/lib/display/clear.asm"
 
 #bank rom
 test_image:
@@ -16,7 +16,7 @@ main:
     psh 5
     psh 5
     psh 5
-    imm a, draw_image
+    imm a, display_clear
     cal a
 
     pop a

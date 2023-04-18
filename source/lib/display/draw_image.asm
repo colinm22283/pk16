@@ -5,7 +5,7 @@
 #include "config.asm"
 
 #bank rom
-draw_image: ; [ byte buffer, x, y, width, height, ret ]
+display_draw_image: ; [ byte buffer, x, y, width, height, ret ]
     sbi stack, 4
     pop a ; width
     pop b ; y

@@ -6,7 +6,7 @@ display:
     .width        = 100
     .height       = 75
 
-    .bus          = (peripheral_bus.a)
+    .bus          = (ipbus.a)
 
     .reg:
         ..color   = (.bus + 0)

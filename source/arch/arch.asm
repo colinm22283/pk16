@@ -8,7 +8,7 @@ stack_offset = rom_size
 heap_offset  = stack_offset + stack_size
 ram_offset   = heap_offset + heap_size
 
-peripheral_offset = 0xE000
+peripheral_offset = 0xF000
 
 #bankdef rom
 {

@@ -87,6 +87,10 @@
         ppl {r}
         ppu {r}
     }
+    ppc {r: register} => asm {
+        ppl r
+        imu r, 0
+    }
 
     cal {r: register} => asm {
         psh ($ + 6)`16

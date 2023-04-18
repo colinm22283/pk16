@@ -113,8 +113,8 @@
   <lib desc="#BFH-Praktika" name="9"/>
   <lib desc="#Input/Output-Extra" name="10"/>
   <lib desc="#Soc" name="11"/>
-  <lib desc="file#modules/logi7400/logi7400dip.circ" name="12"/>
-  <lib desc="file#modules/74x_library.circ" name="13"/>
+  <lib desc="file#modules\74x_library.circ" name="12"/>
+  <lib desc="file#modules\logi7400\logi7400dip.circ" name="13"/>
   <main name="version_2"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -649,7 +649,7 @@
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="version_2"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
-    <a name="simulationFrequency" val="256.0"/>
+    <a name="simulationFrequency" val="32.0"/>
     <comp lib="0" loc="(1290,1100)" name="Pull Resistor"/>
     <comp lib="0" loc="(1300,1100)" name="Pull Resistor"/>
     <comp lib="0" loc="(1310,1100)" name="Pull Resistor"/>
@@ -707,12 +707,12 @@
     <comp lib="0" loc="(1800,1960)" name="Probe">
       <a name="appearance" val="classic"/>
       <a name="facing" val="west"/>
-      <a name="radix" val="10unsigned"/>
+      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(1800,1980)" name="Probe">
       <a name="appearance" val="classic"/>
       <a name="facing" val="west"/>
-      <a name="radix" val="10unsigned"/>
+      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(1800,2000)" name="Probe">
       <a name="appearance" val="classic"/>
@@ -3310,51 +3310,18 @@
       <a name="addrWidth" val="15"/>
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 15 8
-ce 80 c6 0 d0 1a f0 0
-f0 c 40 40 c8 1 c0 16
-f0 0 f0 16 40 40 d0 18
-40 40 c8 3 c0 fe c9 84
-c1 0 88 21 d9 1 88 20
-40 32 40 2b 40 40 e6 2
-45 32 45 2b cb 84 c3 0
-d4 48 44 40 db 1 c9 7f
-c1 ff 88 9b 83 99 d7 ff
-98 2b db 1 98 32 c9 80
-c1 0 81 9b d2 0 4a 1
-49 0 d4 3c 44 42 c9 7f
-c1 ff 81 9b 4d 1 49 0
-44 44 9d 20 e3 1 ca 80
-c2 0 aa 9c 9a 21 db 2
-43 21 43 20 ab 99 88 98
-a8 9a e0 2 98 21 db 1
-98 20 b0 98 81 2b d8 1
-81 32 41 40 e6 2 45 32
-45 2b e5 2 6*0 a8 2b dd
-1 a8 32 c9 7f c1 ff 81
-9b a8 98 8d 99 dd 1 aa
-2b dd 1 aa 32 d9 2 cb
-80 c3 0 93 9b 4b 0 d4
-0 4c 1 d4 d8 44 42 91
-99 81 20 e0 1 81 21 d0
-de 40 40 81 20 e0 1 81
-21 de 4 40 32 40 2b e6
-2 40 40 e6 2 42 32 42
-2b 41 32 40 32 40 2b 82
-99 4a 1 48 0 ca 1 c2
-2 cb 1 c3 a 43 41 81
-20 d8 1 42 40 b0 98 d8
-5 81 2b d8 1 81 32 41
-40 f0 0 f0 32 d0 2e f0
-1 f0 22 40 40 f0 0 f0
-a d0 2e f0 1 f0 2e 40
-40 40 32 40 2b 41 32 41
-2b 40 21 40 20 41 21 41
-20 41 21 41 20 f0 aa f0
-0 f0 32 d0 e8 f0 1 f0
-50 40 40 d0 94 f0 1 f0
-58 40 40 d0 94 f0 1 f0
-60 40 40 40 32 40 2b 40
-40
+ce 80 c6 0 d0 18 f0 0
+f0 c 40 40 d0 44 f0 0
+f0 14 40 40 d0 16 40 40
+c8 3 c0 fe c9 84 c1 0
+88 21 d9 1 88 20 40 32
+40 2b 40 40 45 32 45 2b
+44 32 44 2b d0 0 48 1
+48 0 d3 3c a0 32 43 41
+40 20 45 40 f0 f0 f0 3
+d0 2c f0 0 f0 50 40 40
+41 32 40 32 40 2b 40 40
+d0 14 40 40
 </a>
     </comp>
     <wire from="(340,730)" to="(360,730)"/>
@@ -6920,7 +6887,7 @@ a d0 2e f0 1 f0 2e 40
       <a name="facing" val="north"/>
       <a name="label" val="ab"/>
     </comp>
-    <comp lib="12" loc="(440,330)" name="DIP_74157">
+    <comp lib="13" loc="(440,330)" name="DIP_74157">
       <a name="facing" val="west"/>
     </comp>
     <wire from="(350,320)" to="(440,320)"/>
@@ -7540,7 +7507,7 @@ a d0 2e f0 1 f0 2e 40
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
-    <comp lib="12" loc="(160,110)" name="DIP_74138"/>
+    <comp lib="13" loc="(160,110)" name="DIP_74138"/>
     <wire from="(100,110)" to="(130,110)"/>
     <wire from="(100,120)" to="(130,120)"/>
     <wire from="(100,130)" to="(130,130)"/>
@@ -7594,8 +7561,8 @@ a d0 2e f0 1 f0 2e 40
       <a name="output" val="true"/>
       <a name="width" val="16"/>
     </comp>
-    <comp lib="12" loc="(390,230)" name="DIP_74138"/>
-    <comp lib="12" loc="(390,320)" name="DIP_74138"/>
+    <comp lib="13" loc="(390,230)" name="DIP_74138"/>
+    <comp lib="13" loc="(390,320)" name="DIP_74138"/>
     <wire from="(180,250)" to="(190,250)"/>
     <wire from="(210,230)" to="(340,230)"/>
     <wire from="(210,240)" to="(330,240)"/>
@@ -8595,7 +8562,7 @@ a d0 2e f0 1 f0 2e 40
       <a name="fanout" val="8"/>
       <a name="incoming" val="8"/>
     </comp>
-    <comp lib="12" loc="(810,320)" name="DIP_74374">
+    <comp lib="13" loc="(810,320)" name="DIP_74374">
       <a name="facing" val="north"/>
     </comp>
     <wire from="(1030,150)" to="(1040,150)"/>
@@ -8969,7 +8936,7 @@ a d0 2e f0 1 f0 2e 40
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
-    <comp lib="12" loc="(160,110)" name="DIP_74138"/>
+    <comp lib="13" loc="(160,110)" name="DIP_74138"/>
     <wire from="(100,110)" to="(130,110)"/>
     <wire from="(100,120)" to="(130,120)"/>
     <wire from="(100,130)" to="(130,130)"/>
