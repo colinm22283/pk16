@@ -22,7 +22,8 @@
 {
     ; simple instructions
     nop => 0b00000000 @ 0b00000000
-    hlt => 0b00000000 @ 0b10000000
+    hlt => 0b00000000 @ 0b00000001
+    irt => 0b00000000 @ 0b00000010
 
     ; single register instructions
     jmp {r: register} => 0b01000 @ r @ 0b01000000
@@ -96,5 +97,16 @@
         psh ($ + 6)`16
 
         jmp {r}
+    }
+
+    wr  {addr: register}, {r: register} => asm {
+        wru {addr}, {r}
+        adi {addr}, 1
+        wrl {addr}, {r}
+    }
+    wr  {addr: register}, {val: i16} => asm {
+        wri {addr}, (val >> 8)`8
+        adi {addr}, 1
+        wri {addr}, val`8
     }
 }

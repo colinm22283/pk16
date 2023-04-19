@@ -16,7 +16,7 @@ interrupt:
 
 #include "/lib/heap/init.asm"
 
-#include "/projects/tests/factorial/main.asm"
+#include "/projects/tests/interrupts/main.asm"
 
 imm a, interrupt
 jmp a
