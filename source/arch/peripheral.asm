@@ -16,6 +16,15 @@ pbus:
         ..a: #res 1
         ..b: #res 1
 
+timer:
+    .a:
+        ..period:  #res 1
+        ..config:  #res 1
+
+    .config_enable      = 0b00000001
+    .config_reserved    = 0b11111110
+
+
 pic:
     .a:
         ..address: #res 2
@@ -23,14 +32,16 @@ pic:
     .b:
         ..address: #res 2
         ..config:  #res 1
-
-    .return: #res 2
+    .c:
+        ..address: #res 2
+        ..config:  #res 1
 
     .config_enable    = 0b00000001
     .config_inta_int  = 0b00000010
     .config_ps2a_rec  = 0b00000100
     .config_ps2b_rec  = 0b00001000
-    .config_reserved  = 0b11110000
+    .config_timer_ovf = 0b00010000
+    .config_reserved  = 0b11100000
 
 #ruledef
 {
