@@ -11,7 +11,7 @@ main:
     imm a, timer.a.period
     wr  a, 0xFF
     imm a, timer.a.config
-    wr  a, timer.config_enable
+    wr  a, timer.config_enable | timer.config_div_1
 
     ; set up pic
     imm a, pic.a.address

@@ -5,13 +5,14 @@
 
 #bank peripheral
 flags: #res 1
-    .carry_out   = 0b00000001
-    .carry_in    = 0b00000010
+    .carry       = 0b00000001
+    .power_down  = 0b00000010
     .reserved    = 0b11111100
 
 pbus:
     .internal:
         ..a: #res 3
+        ..b: #res 3
     .ps2:
         ..a: #res 1
         ..b: #res 1
@@ -20,9 +21,16 @@ timer:
     .a:
         ..period:  #res 1
         ..config:  #res 1
+    .b:
+        ..period:  #res 1
+        ..config:  #res 1
 
     .config_enable      = 0b00000001
-    .config_reserved    = 0b11111110
+    .config_div_1       = 0b00000000
+    .config_div_8       = 0b00000010
+    .config_div_256     = 0b00000100
+    .config_div_1024    = 0b00000110
+    .config_reserved    = 0b11111000
 
 
 pic:
