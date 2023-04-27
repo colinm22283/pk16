@@ -6,7 +6,7 @@
 #bank peripheral
 flags: #res 1
     .carry       = 0b00000001
-    .power_down  = 0b00000010
+    .shutdown    = 0b00000010
     .reserved    = 0b11111100
 
 pbus:
@@ -44,12 +44,13 @@ pic:
         ..address: #res 2
         ..config:  #res 1
 
-    .config_enable    = 0b00000001
-    .config_inta_int  = 0b00000010
-    .config_ps2a_rec  = 0b00000100
-    .config_ps2b_rec  = 0b00001000
-    .config_timer_ovf = 0b00010000
-    .config_reserved  = 0b11100000
+    .config_enable     = 0b00000001
+    .config_inta_int   = 0b00000010
+    .config_ps2a_rec   = 0b00000100
+    .config_ps2b_rec   = 0b00001000
+    .config_timera_ovf = 0b00010000
+    .config_timerb_ovf = 0b00100000
+    .config_reserved   = 0b11000000
 
 #ruledef
 {
