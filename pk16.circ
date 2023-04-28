@@ -5,27 +5,27 @@
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="appear" val="center"/>
-      <a name="facing" val="west"/>
+      <a name="fanout" val="8"/>
+      <a name="incoming" val="8"/>
     </tool>
     <tool name="Pin">
       <a name="appearance" val="classic"/>
-      <a name="facing" val="west"/>
+      <a name="facing" val="north"/>
     </tool>
     <tool name="Probe">
       <a name="appearance" val="classic"/>
-      <a name="facing" val="west"/>
+      <a name="facing" val="north"/>
     </tool>
     <tool name="Tunnel">
       <a name="facing" val="south"/>
     </tool>
     <tool name="Pull Resistor">
-      <a name="facing" val="north"/>
+      <a name="facing" val="east"/>
     </tool>
     <tool name="Clock">
       <a name="facing" val="north"/>
     </tool>
     <tool name="Constant">
-      <a name="facing" val="west"/>
       <a name="value" val="0x0"/>
     </tool>
   </lib>
@@ -925,15 +925,15 @@
       <a name="halign" val="left"/>
       <a name="text" val="PPTR"/>
     </comp>
-    <comp lib="8" loc="(1902,1845)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="halign" val="left"/>
-      <a name="text" val="CD"/>
-    </comp>
-    <comp lib="8" loc="(1903,1823)" name="Text">
+    <comp lib="8" loc="(1900,1820)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="AB"/>
+    </comp>
+    <comp lib="8" loc="(1900,1845)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="left"/>
+      <a name="text" val="CD"/>
     </comp>
     <comp loc="(1160,1390)" name="tri_state_switch_16"/>
     <comp loc="(1160,1660)" name="bus_encoder"/>
@@ -3802,20 +3802,20 @@
     <comp lib="6" loc="(570,570)" name="7410">
       <a name="ShowInternalStructure" val="true"/>
     </comp>
-    <comp lib="8" loc="(1033,1704)" name="Text">
+    <comp lib="8" loc="(1030,1700)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="timer"/>
     </comp>
-    <comp lib="8" loc="(1037,2155)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="halign" val="left"/>
-      <a name="text" val="pic"/>
-    </comp>
-    <comp lib="8" loc="(1039,1241)" name="Text">
+    <comp lib="8" loc="(1035,1240)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="pbus"/>
+    </comp>
+    <comp lib="8" loc="(1035,2155)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="left"/>
+      <a name="text" val="pic"/>
     </comp>
     <comp lib="8" loc="(985,750)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
@@ -4290,14 +4290,32 @@
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 15 8
 ce 80 c6 0 d0 0 c9 f0
-c1 0 88 20 d0 20 f0 0
-f0 14 40 40 d0 2 c9 f0
-c1 0 88 20 d0 1e 40 40
-d0 1 d1 0 d2 1 d3 0
-84 98 8d 98 90 99 99 99
-a2 98 ab 98 d5 28 45 46
-45 32 45 2b 45 40 d0 1c
-40 40
+c1 0 88 20 d0 28 f0 0
+f0 14 40 40 d0 b0 f0 0
+f0 1c 40 40 d0 2 c9 f0
+c1 0 88 20 d0 26 40 40
+d0 0 c9 84 c1 0 88 21
+d9 1 88 20 c8 3 c0 fc
+d9 1 88 21 d9 1 88 20
+40 32 40 2b 40 40 e6 2
+45 32 45 2b cb 84 c3 2
+98 2b db 1 98 32 d1 80
+81 9b 49 0 d2 0 4a 1
+d2 70 42 41 d1 7f 81 9b
+8b 99 db 1 d2 50 42 40
+d1 7f 81 9b 4d 1 d2 82
+42 43 83 99 db 1 d2 50
+42 40 9c 98 dc 1 44 21
+44 20 9d 20 e3 1 9d 21
+9a 98 ab 99 db 2 9a 21
+db 1 9a 20 db 1 a8 9a
+e0 4 98 21 db 1 98 20
+de 2 45 32 45 2b 45 40
+f0 0 f0 a d5 46 f0 0
+f0 bc 45 40 10*0 f0 0 f0
+a d5 46 f0 0 f0 d2 45
+40 10*0 45 32 45 2b 45 40
+d0 24 40 40
 </a>
     </comp>
     <wire from="(340,730)" to="(360,730)"/>
