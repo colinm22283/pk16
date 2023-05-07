@@ -2,14 +2,14 @@
 
 #subruledef register
 {
-    a => 0b000
-    b => 0b001
-    c => 0b010
-    d => 0b011
-    e => 0b100
-    f => 0b101
-    stack => 0b110 ; points to next position in stack
-    pptr => 0b111  ; points to the next instruction (read only)
+    a    => 0b000
+    b    => 0b001
+    c    => 0b010
+    d    => 0b011
+    e    => 0b100
+    f    => 0b101
+    stp  => 0b110 ; points to next position in stack
+    pc   => 0b111 ; points to the next instruction (read only)
 }
 
 #subruledef boolean
@@ -108,5 +108,11 @@
         wri {addr}, (val >> 8)`8
         adi {addr}, 1
         wri {addr}, val`8
+    }
+
+    ld  {val: register}, {addr: register} => asm {
+        ldu {val}, {addr}
+        adi {addr}, 1
+        ldl {val}, {addr}
     }
 }

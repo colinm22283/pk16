@@ -4,12 +4,12 @@
 
 #bank rom
 #addr 0
-imm stack, stack_offset
+imm stp, stack_offset
 imm a, 0
 imm b, flags
 wrl b, a
-imm a, heap_init
-cal a
+;imm a, heap_init
+;cal a
 imm a, main
 cal a
 imm a, flags.shutdown
@@ -20,9 +20,9 @@ interrupt:
     .loop:
         jmp a
 
-#include "/lib/heap/init.asm"
+;#include "/lib/heap/init.asm"
 
-#include "/projects/tests/heap/main.asm"
+#include "/projects/tests/interrupt/main.asm"
 
 imm a, interrupt
 jmp a

@@ -3,4 +3,6 @@ project(pk16)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(pk16 main.cpp)
+include_directories(${PROJECT_SOURCE_DIR}/compiler/header/)
+
+add_executable(pk16 compiler/source/main.cpp)

@@ -5,85 +5,78 @@
 ; format
 ; [ ptr to previous block size ] [ block size tag ] [ block ]
 
-malloc: ; [ size, ret ]
-    sbi stack, 2
-    pop f
+; size tag: first bit is free status of block 0 = free
 
-    ; f: size of section to reserve
+; a: size MUST BE ALIGNED TO 4 BITS
+; returns a: ptr to alloced region
+malloc: ; [ ret ]
+    ; first find a block
 
-    imm d, heap_offset + 2
+    mov f, a
+    imm e, heap_offset
+    ; f contains size
+    ; e contains the current heap ptr
 
-    ; d is going to be the pointer, needs to be ad a block size tag on start
+    imm a, .locate_loop
+    jmp a
+
+    .locate_loop_start:
+        imm b, 0x7FFF
+        and b, a ; b: size of block
+        add a, b
+        adi a, 1
     .locate_loop:
-        ldu a, d
-        adi d, 1
-        ldl a, d
-        ; a contains the block tag size
+        adi e, 2
+        ld  a, e
 
-        imm b, 0b10000000
+        ; check if block is free
+        imm b, 0x8000
         and b, a
-        ; b > 0 if reserved
         cma b
         imm c, 0
         cmb c
-        imm c, ..skip_reserved
-        je  c
-            ; if reserved
-            imm b, 0b01111111
-            and b, a
-            add d, b
-            adi d, 1
+        imm d, .locate_loop_start
+        jgt d ; jump if not free
 
-            imm c, .locate_loop
-            jmp c ; go to next block
-        ..skip_reserved:
-
-        imm b, 0b01111111
-        and b, a
+        ; check if block is large enough
+        imm b, 0x7FFF
+        and b, a ; b: size of block
+        sbi b, 4
+        cma b
         cmb f
-        imm c, ..skip_small
-        jgt c
-            ; if too small
-            add d, a
-            adi d, 1
+        jlt d ; D MUST REMAIN
 
-            imm c, .locate_loop
-            jmp c ; go to next block
-        ..skip_small:
+    ; a valid is found!
+    ; e will point to the end of the block tag
 
-        ; block is ready!
+    adi e, 1
+    psh e
+    sbi e, 1
 
-        ; push the return
-        mov e, d
-        adi e, 1
-        psh e
+    ; split the block
+    ldl a, e
+    sbi e, 1
+    ldu a, e
+    ; a contains size of the old block
+    mov b, f
+    imm c, 0x8000
+    or  b, c
+    wru e, b
+    adi e, 1
+    wrl e, b
 
-        ; a contains the block size
+    ; go to where the new tag will be
+    add e, f
+    adi e, 1
 
-        ; write in the new size specifier
-        wrl d, f
-        sbi d, 1
-        wru d, f
+    ; write the new tag
+    pop b
+    wr  e, b
+    adi e, 1
+    sub a, f
+    sbi a, 2
+    wr  e, a
 
-        ; go to next tag
-        mov c, d
-        add d, f
-        adi d, 2
-        ; c contains the prev tag
-
-        ; write the next prev pointer
-        wru d, c
-        adi d, 1
-        wrl d, c
-        adi d, 1
-
-        ; write the next block size
-        sub a, f
-        sbi a, 4
-        wru d, a
-        adi d, 1
-        wrl d, a
-
-        adi stack, 2
-        pop f
-        jmp f
+    mov a, b
+    pop b
+    jmp b

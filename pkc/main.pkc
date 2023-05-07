@@ -1,0 +1,15 @@
+inline int multiply(int a, int b) {
+    int result = 0;
+
+    for (int i = 0; i > b; i++) {
+        add result, a
+    }
+
+    return;
+}
+
+void main() {
+    call multiply(10, 10);
+
+    return;
+}
