@@ -74,6 +74,10 @@
         imu {r}, (value >> 8)`8
         iml {r}, value`8
     }
+    imm {r: register}, {value: s16} => asm {
+        imu {r}, (value >> 8)`8
+        iml {r}, value`8
+    }
 
     psh {r: register} => asm {
         psu {r}
@@ -104,11 +108,11 @@
         adi {addr}, 1
         wrl {addr}, {r}
     }
-    wr  {addr: register}, {val: i16} => asm {
-        wri {addr}, (val >> 8)`8
-        adi {addr}, 1
-        wri {addr}, val`8
-    }
+    ;wr  {addr: register}, {val: i16} => asm {
+    ;    wri {addr}, (val >> 8)`8
+    ;    adi {addr}, 1
+    ;    wri {addr}, val`8
+    ;}
 
     ld  {val: register}, {addr: register} => asm {
         ldu {val}, {addr}

@@ -1,11 +1,9 @@
 #once
 
-memset: ; [ dest, value : 1, size, ret ]
-    sbi stack, 2
-    pop c ; size
-    ppl b
-    pop a
-
+; a: dest
+; b: value
+; c: size
+memset: ; [ ret ]
     add c, a
     cmb c
     cma a
@@ -22,9 +20,5 @@ memset: ; [ dest, value : 1, size, ret ]
         jmp c
     ..break:
 
-    mov a, stack
-    adi a, 5
-    ldu b, a
-    adi a, 1
-    ldl b, a
+    pop b
     jmp b

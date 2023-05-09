@@ -5,9 +5,10 @@
 
 #bank peripheral
 flags: #res 1
-    .carry       = 0b00000001
-    .shutdown    = 0b00000010
-    .reserved    = 0b11111100
+    .carry        = 0b00000001
+    .carry_disable = 0b00000010
+    .shutdown     = 0b00000100
+    .reserved     = 0b11111000
 
 pbus:
     .internal:

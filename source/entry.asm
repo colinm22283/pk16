@@ -5,7 +5,7 @@
 #bank rom
 #addr 0
 imm stp, stack_offset
-imm a, 0
+imm a, flags.carry_disable
 imm b, flags
 wrl b, a
 ;imm a, heap_init

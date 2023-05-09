@@ -1,13 +1,11 @@
 #once
 
-memcpy: ; [ dest, source, size, ret ]
-    sbi stack, 2
-    pop a ; size
-    pop b ; source
-    pop c ; dest
-
-    add a, b
-    cmb a
+; a: dest
+; b: source
+; c: size
+memcpy: ; [ ret ]
+    add c, b
+    cmb c
     cma b
 
     imm d, .loop.break
@@ -15,18 +13,14 @@ memcpy: ; [ dest, source, size, ret ]
     .loop:
         je  d
 
-        ldl a, b
-        wrl c, a
+        ldl c, b
+        wrl a, c
 
         adi b, 1
-        adi c, 1
+        adi a, 1
 
         jmp e
     ..break:
 
-    mov a, stack
-    adi a, 6
-    ldu b, a
-    adi a, 1
-    ldl b, a
+    pop b
     jmp b

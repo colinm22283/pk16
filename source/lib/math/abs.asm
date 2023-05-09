@@ -1,12 +1,10 @@
 #once
 
 #bank rom
-m_abs: ; [ value, ret ]
-    pop c
-    pop a
-
+; a: value
+m_abs: ; [ ret ]
     imm b, 0x7FFF
     and a, b
-    psh a
 
-    jmp c
+    pop b
+    jmp b

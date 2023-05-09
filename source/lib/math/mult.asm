@@ -3,29 +3,27 @@
 #bank rom
 
 ; takes two 16 bit integers and returns the product
-m_mult: ; [ arg0, arg1, ret ]
-    sbi stack, 2
-    pop c
-    pop b
-    cma c
+; a: arg0
+; b: arg1
+m_mult: ; [ ret ]
+    imm c, 0
+    cmb c
 
-    imc a, 0
-    cmb a
+    mov c, a
+    cma b
+
+    imm d, .skip
+    je  d
+
+    sbi b, 1
 
     imm d, .loop
-
     .loop:
-        add a, b
-
-        sbi c, 1
+        add a, c
+        sbi b, 1
 
         jgt d
+    .skip:
 
-    psh a
-
-    mov a, stack
-    adi a, 2
-    ldu b, a
-    adi a, 1
-    ldl b, a
+    pop b
     jmp b

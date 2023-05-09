@@ -5,6 +5,9 @@ counter: #res 4
 
 #bank rom
 int_power:
+    imm e, 0xFFFF
+    imm f, 0xFFFF
+
     imm a, flags.shutdown
     imm b, flags
     wrl b, a
@@ -40,14 +43,18 @@ main:
     adi b, 1
     wr  b, a
 
-    imm a, pic.config_ext_int
+    nop
+    nop
+    nop
+
+    imm a, pic.config_ext_int | pic.config_enable
     imm b, pic.a.config
     wrl b, a
     imm a, int_power
     imm b, pic.a.address
     wr  b, a
 
-    imm a, pic.config_timera_ovf
+    imm a, pic.config_timera_ovf | pic.config_enable
     imm b, pic.b.config
     wrl b, a
     imm a, int_timer
