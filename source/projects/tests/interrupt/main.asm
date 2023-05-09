@@ -2,30 +2,48 @@
 
 #include "/lib/math/mult.asm"
 
+#bank ram
+counter: #res 4
+
 #bank rom
 int_ext:
-    adi f, 1
+    imm a, counter
+    ld  d, a
+    adi a, 1
+    ld  c, a
+
+    add c, c
+    add d, d
+
+    imm a, counter
+    wr  a, d
+    adi a, 1
+    wr  a, c
 
     irt
 
 main:
-    imm a, pic.config_ext_int | pic.config_enable
-    imm b, pic.a.config
-    wrl b, a
     imm a, int_ext
     imm b, pic.a.address
     wr  b, a
+    imm a, pic.config_ext_int | pic.config_enable
+    imm b, pic.a.config
+    wrl b, a
 
-    imm f, 5
+    imm a, flags
+    imm b, 0
+    wr b, a
 
+    imm a, 0
+    imm b, counter
+    wr  b, a
+    imm a, 1
+    adi b, 1
+    wr  b, a
+
+    imm f, .loop
     .loop:
-        imm a, 10
-        imm b, 70
-        imm c, m_mult
-        cal c
-
-        imm c, .loop
-        jmp c
+        jmp f
 
     pop a
     jmp a
