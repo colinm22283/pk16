@@ -24,10 +24,10 @@ int_ext:
 
 main:
     imm a, int_ext
-    imm b, pic.a.address
+    imm b, pic.b.address
     wr  b, a
     imm a, pic.config_ext_int | pic.config_enable
-    imm b, pic.a.config
+    imm b, pic.b.config
     wrl b, a
 
     imm a, flags

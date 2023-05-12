@@ -74,10 +74,6 @@
         imu {r}, (value >> 8)`8
         iml {r}, value`8
     }
-    imm {r: register}, {value: s16} => asm {
-        imu {r}, (value >> 8)`8
-        iml {r}, value`8
-    }
 
     psh {r: register} => asm {
         psu {r}

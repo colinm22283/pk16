@@ -9,12 +9,11 @@
 
 ; a: size MUST BE ALIGNED TO 4 BITS
 ; returns a: ptr to alloced region
-malloc: ; [ ret ]
-    ; first find a block
-
+alloc: ; [ ret ]
+    ; find a block
     mov f, a
     imm e, heap_offset
-    ; f contains size
+    ; f contains requested size
     ; e contains the current heap ptr
 
     imm a, .locate_loop
@@ -23,8 +22,8 @@ malloc: ; [ ret ]
     .locate_loop_start:
         imm b, 0x7FFF
         and b, a ; b: size of block
-        add a, b
-        adi a, 1
+        add e, b
+        adi e, 1
     .locate_loop:
         adi e, 2
         ld  a, e
@@ -46,8 +45,9 @@ malloc: ; [ ret ]
         cmb f
         jlt d ; D MUST REMAIN
 
-    ; a valid is found!
+    ; a valid block is found!
     ; e will point to the end of the block tag
+
 
     adi e, 1
     psh e
@@ -61,9 +61,7 @@ malloc: ; [ ret ]
     mov b, f
     imm c, 0x8000
     or  b, c
-    wru e, b
-    adi e, 1
-    wrl e, b
+    wr  e, b
 
     ; go to where the new tag will be
     add e, f
@@ -71,10 +69,12 @@ malloc: ; [ ret ]
 
     ; write the new tag
     pop b
+    sbi b, 4
     wr  e, b
+    adi b, 4
     adi e, 1
     sub a, f
-    sbi a, 2
+    sbi a, 4
     wr  e, a
 
     mov a, b

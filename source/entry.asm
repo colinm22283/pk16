@@ -8,8 +8,8 @@ imm stp, stack_offset
 imm a, flags.carry_disable
 imm b, flags
 wrl b, a
-;imm a, heap_init
-;cal a
+imm a, heap_init
+cal a
 imm a, main
 cal a
 imm a, flags.shutdown
@@ -20,9 +20,9 @@ interrupt:
     .loop:
         jmp a
 
-;#include "/lib/heap/init.asm"
+#include "/lib/heap/init.asm"
 
-#include "/projects/tests/interrupt/main.asm"
+#include "/projects/tests/heap/main.asm"
 
 imm a, interrupt
 jmp a

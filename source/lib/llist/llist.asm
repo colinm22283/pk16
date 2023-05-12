@@ -1,6 +1,6 @@
 #once
 
-#include "/lib/heap/malloc.asm"
+#include "/lib/heap/alloc.asm"
 #include "/lib/heap/free.asm"
 
 #bank rom
@@ -17,9 +17,7 @@ llist_node_t:
 ; a: llist ptr
 llist_init: ; [ ret ]
     imm b, 0
-    wrl a, b
-    adi a, 1
-    wrl a, b
+    wr  a, b
 
     pop a
     jmp a
@@ -60,8 +58,35 @@ llist_delete: ; [ ret ]
 
         jmp f
 
-llist_add:
+; a: llist ptr
+; b: value
+llist_add: ; [ ret ]
+    psh b
+
+    ld  b, a
+    ; b head ptr
+    cma b
+    imm c, 0
+    cmb c
+    imm c, .is_empty
+    jne c
 
 
-    pop a
-    jmp a
+    .is_empty:
+        psh a
+        imm a, llist_node_t.size
+        imm b, alloc
+        cal b
+        pop b
+        wr  b, a
+
+        imm c, 0
+        wr  a, c
+        adi a, 1
+        pop c
+        wr  a, c
+
+        pop a
+        jmp a
+
+    .recur:

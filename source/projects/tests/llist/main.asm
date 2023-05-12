@@ -2,17 +2,13 @@
 
 
 #include "/lib/llist/llist.asm"
+#include "/lib/heap/alloc.asm"
 
 #bank rom
 main:
-    imm a, 8
-    imm b, malloc
+    imm a, llist_t.size
+    imm b, alloc
     cal b
-
-
-
-    mov a, stp
-    adi stp, 2
 
     psh a
 
@@ -20,10 +16,10 @@ main:
     cal b
 
     pop a
-    imm b, llist_delete
-    cal b
-
-    sbi stp, 2
+    psh a
+    imm b, 10
+    imm c, llist_add
+    cal c
 
     pop a
     jmp a

@@ -1,27 +1,38 @@
 #once
 
-#include "/lib/heap/malloc.asm"
+#include "/lib/heap/alloc.asm"
+#include "/lib/heap/free.asm"
 
+#bank rom
 main:
-    psh 10
-    imm f, malloc
-    cal f
+    imm a, 4
+    imm b, alloc
+    cal b
+    psh a
 
-    nop
-    nop
-    nop
-    nop
-    nop
+    imm a, 4
+    imm b, alloc
+    cal b
+    psh a
 
-    psh 10
-    imm f, malloc
-    cal f
+    imm a, 4
+    imm b, alloc
+    cal b
+    psh a
 
-    nop
-    nop
-    nop
-    nop
-    nop
+    pop a
+    imm b, free
+    cal b
+
+    pop b
+    pop a
+    psh b
+    imm b, free
+    cal b
+
+    pop a
+    imm b, free
+    cal b
 
     ; return
     pop f
