@@ -12,10 +12,15 @@ m_mult: ; [ ret ]
     mov c, a
     cma b
 
+    imm a, 0
     imm d, .skip
     je  d
 
     sbi b, 1
+
+    mov a, c
+    imm d, .skip
+    je  d
 
     imm d, .loop
     .loop:
