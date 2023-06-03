@@ -1,5 +1,5 @@
 #once
 
-#include "malloc.asm"
+#include "alloc.asm"
 #include "free.asm"
 #include "init.asm"

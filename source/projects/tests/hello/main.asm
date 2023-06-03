@@ -3,30 +3,25 @@
 #include "/lib/gpu/fonts/default.asm"
 #include "/lib/gpu/font.asm"
 
-#bank rom
-hello_str: #d "HELLO\0"
+#bank ram
+is_complete: #res 1
 
+#bank rom
 ext_int:
     psh a
     psh b
-    psh c
-    psh d
-    psh e
-    psh f
-    stc
+    ; cms
 
-    imm a, hello_str
-    imm b, 0
-    imm c, gpu_print_str
-    cal c
+    imm a, is_complete
+    imm b, 1
+    wrl a, b
 
-    ldc
-    pop f
-    pop e
-    pop d
-    pop c
+    ; cml
     pop b
     pop a
+
+    ;imm a, interrupt
+    ;jmp a
 
     irt
 
@@ -40,8 +35,20 @@ main:
     imm b, pic.config_enable | pic.config_ext_int
     wrl a, b
 
+    imm a, is_complete
+    imm b, 0
+    wrl a, b
+
+    imm b, .loop
+    .loop:
+        imm c, 0
+        cmb c
+        ldl c, a
+        cma c
+        je  b
+
     imm a, test_str
-    imm b, gpu_width * 6
+    imm b, 0
     imm c, gpu_print_str
     cal c
 
