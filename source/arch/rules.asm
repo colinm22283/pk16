@@ -24,6 +24,8 @@
     nop => 0b00000000 @ 0b00000000
     hlt => 0b00000000 @ 0b00000001
     irt => 0b00000000 @ 0b00000010
+    cms => 0b00000000 @ 0b00000011
+    cml => 0b00000000 @ 0b00000100
 
     ; single register instructions
     jmp {r: register} => 0b01000 @ r @ 0b01000000
@@ -114,5 +116,24 @@
         ldu {val}, {addr}
         adi {addr}, 1
         ldl {val}, {addr}
+    }
+
+    store_all => asm {
+        psh a
+        psh b
+        psh c
+        psh d
+        psh e
+        psh f
+        cms
+    }
+    load_all => asm {
+        cml
+        pop f
+        pop e
+        pop d
+        pop c
+        pop b
+        pop a
     }
 }

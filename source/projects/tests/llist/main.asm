@@ -10,16 +10,54 @@ main:
     imm b, alloc
     cal b
 
-    psh a
-
     imm b, llist_init
     cal b
 
-    pop a
-    psh a
-    imm b, 10
-    imm c, llist_add
+    imm b, 1
+    imm c, llist_push
     cal c
+    imm b, 2
+    imm c, llist_push
+    cal c
+    imm b, 3
+    imm c, llist_push
+    cal c
+
+    psh a
+    imm a, 10
+    imm b, alloc
+    cal b
+    mov f, a
+    pop a
+    psh f
+    psh f
+
+    imm b, llist_pop
+    cal b
+    pop f
+    wr  f, b
+    adi f, 1
+    psh f
+
+    imm b, llist_pop
+    cal b
+    pop f
+    wr  f, b
+    adi f, 1
+    psh f
+
+    imm b, llist_pop
+    cal b
+    pop f
+    wr  f, b
+    adi f, 1
+
+    imm b, free
+    cal b
+
+    pop a
+    imm b, free
+    cal b
 
     pop a
     jmp a

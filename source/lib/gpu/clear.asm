@@ -18,6 +18,8 @@ gpu_clear:
     .loop:
         wrl a, b
 
+        adi c, 1
+
         jlt d
 
     pop a

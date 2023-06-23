@@ -15,78 +15,87 @@ llist_node_t:
 
 #bank rom
 ; a: llist ptr
+; returns a: llist ptr
 llist_init: ; [ ret ]
     imm b, 0
     wr  a, b
+    sbi a, 1
 
-    pop a
-    jmp a
+    pop b
+    jmp b
 
 ; a: llist ptr
-llist_delete: ; [ ret ]
-    ldu b, a
-    adi a, 1
-    ldl b, a
-
-    mov a, b
-    imm c, .llist_delete_recur
-    cal c
-
-    pop a
-    jmp a
-
-    ; a: node ptr
-    .llist_delete_recur: ; [ ret ]
-        pop f
-
-        cma a
-        imm b, 0
-        cmb b
-        je  f
-
-        mov b, a
-
-        ldu a, b
-        adi b, 1
-        ldl a, b
-        imm c, .llist_delete_recur
-        cal c
-
-        mov a, b
-        imm c, free
-        cal c
-
-        jmp f
+llist_destroy:
+    ld b, a
 
 ; a: llist ptr
 ; b: value
-llist_add: ; [ ret ]
+; returns a: llist ptr, b: value pointer
+llist_push: ; [ ret ]
+    psh a
+    psh b
+    imm a, llist_node_t.size
+    imm b, alloc
+    cal b
+    pop c
+    pop b
+
+    ; a: alloc ptr
+    ; b: llist ptr
+    ; c: value
+
+    ld  d, b
+    ; d old alloc
+    sbi b, 1
+    wr  b, a
+    sbi b, 1
+
+    wr  a, d
+    adi a, 1
+    mov d, a
+    wr  a, c
+
+    mov a, b
+    mov b, d
+
+    pop c
+    jmp c
+
+; a: llist ptr
+; returns a: llist ptr, b: value
+llist_pop: ; [ ret ]
+    ld  b, a
+
+    ; a: llist ptr + 1
+    ; b: root ptr
+
+    ld  c, b
+    ; b: root ptr + 1
+    ; c: next.next
+    wrl a, c
+    sbi a, 1
+    wru a, c
+
+    ; a: llist ptr
+
+    mov d, b
+    mov c, b
+    adi c, 1
+    ; c: root value pointer
+    ld  b, c
+
+    ; d: root ptr + 1
+
+    psh a
     psh b
 
-    ld  b, a
-    ; b head ptr
-    cma b
-    imm c, 0
-    cmb c
-    imm c, .is_empty
-    jne c
+    sbi d, 1
+    mov a, d
+    imm b, free
+    cal b
 
+    pop b
+    pop a
 
-    .is_empty:
-        psh a
-        imm a, llist_node_t.size
-        imm b, alloc
-        cal b
-        pop b
-        wr  b, a
-
-        imm c, 0
-        wr  a, c
-        adi a, 1
-        pop c
-        wr  a, c
-
-        pop a
-        jmp a
-
-    .recur:
+    pop c
+    jmp c

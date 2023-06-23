@@ -26,7 +26,7 @@ interrupt:
 
 #include "/lib/heap/init.asm"
 
-#include "main.asm"
+#include "out.asm"
 
 imm a, interrupt
 jmp a

@@ -1,0 +1,18 @@
+const u8* str = "ABCD";
+
+def main() {
+    use stp;
+    alias alloc f; alloc = stp;
+    stp <+ 4;
+
+    alias str_ptr e; str_ptr <= str;
+    alias ch d; ch ^<_ str_ptr;
+
+    c <= 0;
+    while ch != c {
+        ch _>^ alloc;
+        ch ^<_ str_ptr;
+    }
+
+    stp <- 4;
+}

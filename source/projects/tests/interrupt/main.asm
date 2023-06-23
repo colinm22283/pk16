@@ -2,24 +2,25 @@
 
 #include "/lib/math/mult.asm"
 
-#bank ram
-counter: #res 4
+#include "/lib/heap/alloc.asm"
+#include "/lib/heap/free.asm"
+
+#include "/lib/gpu/font.asm"
+#include "/lib/gpu/fonts/default.asm"
 
 #bank rom
 int_ext:
-    imm a, counter
-    ld  d, a
-    adi a, 1
-    ld  c, a
+    cms
+    pop a
 
-    add c, c
-    add d, d
+    psh f
 
-    imm a, counter
-    wr  a, d
-    adi a, 1
-    wr  a, c
+    imm b, free
+    cal b
 
+    pop f
+
+    cml
     irt
 
 main:
@@ -30,16 +31,38 @@ main:
     imm b, pic.b.config
     wrl b, a
 
-    imm a, flags
-    imm b, 0
-    wr b, a
+    imm a, 4
+    imm b, alloc
+    cal b
+    psh a
+    imm a, 4
+    imm b, alloc
+    cal b
+    psh a
+    imm a, 4
+    imm b, alloc
+    cal b
+    psh a
+    imm a, 4
+    imm b, alloc
+    cal b
+    psh a
+    imm a, 4
+    imm b, alloc
+    cal b
+    psh a
 
-    imm a, 0
-    imm b, counter
-    wr  b, a
-    imm a, 1
-    adi b, 1
-    wr  b, a
+    pop a
+    pop b
+    pop c
+    pop d
+    pop e
+
+    psh e
+    psh c
+    psh d
+    psh b
+    psh a
 
     imm f, .loop
     .loop:
