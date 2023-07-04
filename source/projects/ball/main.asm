@@ -1,15 +1,55 @@
 #once
 
 #include "/lib/gpu/config.asm"
+#include "/lib/gpu/clear.asm"
+#include "/lib/gpu/colors.asm"
+#include "/lib/gpu/font.asm"
+#include "/lib/gpu/fonts/default.asm"
 
 #include "/lib/math/mult.asm"
 
+#include "/lib/memory/strcpy.asm"
+
 #bank rom
+abc_str: #d "ABC\0"
+
+ext_int_handler:
+    store_all
+
+    imm a, color.RED
+    imm f, gpu_clear
+    cal f
+
+    adi stp, 4
+    mov a, stp
+    sbi a, 4
+    imm b, abc_str
+    imm f, strcpy
+    cal f
+
+    mov a, stp
+    sbi a, 4
+    imm b, 0
+    imm f, gpu_print_str
+    cal f
+
+    sbi stp, 4
+
+    load_all
+    irt
+
 main:
     .right_wall = 20
     .left_wall = 2
     .top_wall = 2
     .bottom_wall = 20
+
+    imm a, pic.a.address
+    imm b, ext_int_handler
+    wr  a, b
+    imm a, pic.a.config
+    imm b, pic.config_enable | pic.config_ext_int
+    wrl a, b
 
     imm c, 5
     imm d, 5

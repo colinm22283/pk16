@@ -3,14 +3,16 @@
 #include "config.asm"
 
 #bank rom
+; a: color
 gpu_clear:
+    mov c, a
     imm a, pbus.internal.a
     imm b, 0
     wr  a, b
     adi a, 1
-    imm b, gpu_width * gpu_height
+    imm b, gpu_width ; * gpu_height
     cmb b
-    imm b, 0
+    mov b, c
     imm c, 0
     cma c
 

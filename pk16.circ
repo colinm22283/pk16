@@ -117,8 +117,8 @@
   <lib desc="#BFH-Praktika" name="9"/>
   <lib desc="#Input/Output-Extra" name="10"/>
   <lib desc="#Soc" name="11"/>
-  <lib desc="file#modules\logi7400\logi7400dip.circ" name="12"/>
-  <lib desc="file#modules\74x_library.circ" name="13"/>
+  <lib desc="file#modules\74x_library.circ" name="12"/>
+  <lib desc="file#modules\logi7400\logi7400dip.circ" name="13"/>
   <main name="version_2"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -653,7 +653,7 @@
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="version_2"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
-    <a name="simulationFrequency" val="32.0"/>
+    <a name="simulationFrequency" val="2048000.0"/>
     <comp lib="0" loc="(1290,1100)" name="Pull Resistor"/>
     <comp lib="0" loc="(1300,1100)" name="Pull Resistor"/>
     <comp lib="0" loc="(1310,1100)" name="Pull Resistor"/>
@@ -6485,7 +6485,7 @@
       <a name="contents">addr/data: 15 8
 ce 80 c6 0 d0 2 c9 f0
 c1 0 88 20 d0 2a f0 0
-f0 14 40 40 c8 5 c0 e2
+f0 14 40 40 c8 5 c0 cc
 f0 0 f0 1e 40 40 d0 4
 c9 f0 c1 0 88 20 d0 28
 40 40 d0 0 c9 84 c1 0
@@ -6495,142 +6495,148 @@ c0 f8 d9 1 88 21 d9 1
 88 21 d9 1 88 20 d9 1
 c8 80 c0 0 88 21 d9 1
 88 20 40 32 40 2b 40 40
+82 98 c8 f0 c0 1 d1 0
+81 21 d8 1 81 20 d8 1
+d1 40 49 1 91 98 d2 0
+4a 0 d3 7c 81 20 da 1
+43 44 40 32 40 2b 40 40
 d2 0 4a 1 82 98 49 0
-d0 0 d3 7e 43 41 e1 1
-90 98 d3 7e 43 41 d3 78
+d0 0 d3 a6 43 41 e1 1
+90 98 d3 a6 43 41 d3 a0
 90 99 e1 1 43 43 41 32
-41 2b 41 40 85 98 cc 84
-c4 0 d0 98 40 40 c9 7f
-c1 ff 81 9b 8c 99 dc 1
-dc 2 a0 2b dc 1 a0 32
-c9 80 c1 0 81 9b 49 0
-d2 0 4a 1 d3 8e 43 43
-c9 7f c1 ff 81 9b e1 4
-49 0 4d 1 43 44 dc 1
-44 21 44 20 e4 1 a0 32
-e4 1 a0 2b a9 98 ca 80
-c2 0 91 9c a1 21 dc 1
-a1 20 ac 99 dc 1 41 32
-41 2b e1 4 a1 21 dc 1
-a1 20 d9 4 dc 1 a8 9a
-e0 4 a0 21 dc 1 a0 20
-88 98 41 32 41 2b 41 40
-8d 98 cc f0 c4 1 a3 21
-dc 1 a3 20 43 21 43 20
-d3 0 4b 1 a9 98 49 0
-dc 1 83 32 a3 20 e1 1
-d8 1 cb 1 c3 1a 43 43
-e2 1 43 32 43 2b db 40
-e4 2 a3 21 dc 1 a3 20
-43 21 43 20 4a 0 cb 1
-c3 14 43 43 40 32 40 2b
+41 2b 41 40 8d 98 cc f0
+c4 1 a3 21 dc 1 a3 20
+43 21 43 20 d3 0 4b 1
+a9 98 49 0 dc 1 83 32
+a3 20 e1 1 d8 1 d3 c6
+43 43 e2 1 43 32 43 2b
+db 40 e4 2 a3 21 dc 1
+a3 20 43 21 43 20 4a 0
+d3 c0 43 43 40 32 40 2b
 40 32 40 2b 40 40 41 21
 41 20 e0 41 81 98 d0 24
-d2 60 f0 1 f0 60 42 40
-c9 1 c1 d2 88 99 d1 6
-d2 6 43 32 43 2b cc 1
-c4 0 f0 1 f0 78 44 40
-40 32 40 2b 40 40 85 98
-8c 98 45 21 45 20 44 21
-44 20 d0 0 a8 32 40 21
-40 20 d1 0 49 1 48 0
-c9 1 c1 ca 41 41 a1 98
-ca 1 c2 4e f0 1 f0 aa
-42 40 40 32 40 2b 44 32
-44 2b dc 6 cd f0 c5 1
-ac 21 dd 1 ac 20 45 32
-45 2b dd 1 c9 1 c1 82
-41 40 e6 6 40 32 40 2b
-40 40 ff 0 0 0 ff ff
-0 ff ff ff 0 ff 5*0 ff
-0 ff ff ff 0 ff 0 ff
-ff ff 0 7*ff 4*0 ff ff 0
-ff ff ff 0 ff 4*0 ff ff
-0 ff ff ff 0 ff 4*0 9*ff
-0 0 0 ff ff 0 ff ff
-ff 0 ff 0 5*ff 0 ff ff
-ff 0 ff ff 0 0 0 8*ff
-4*0 ff ff 0 ff ff ff 0
-ff 0 ff ff ff 0 ff 0
-ff ff ff 0 ff 4*0 8*ff 5*0
-ff 0 5*ff 4*0 ff ff 0 5*ff
-5*0 7*ff 5*0 ff 0 5*ff 5*0 ff
-0 5*ff 0 11*ff 5*0 ff 0 5*ff
-0 ff 0 0 0 ff 0 ff
-ff ff 0 ff 5*0 7*ff 0 ff
-ff ff 0 ff 0 ff ff ff
+d2 88 f0 1 f0 8 42 40
+c9 1 c1 76 88 99 d1 6
+d2 6 43 32 43 2b d4 ac
+f0 1 f0 1e 44 40 40 32
+40 2b 40 40 85 98 8c 98
+45 21 45 20 44 21 44 20
+d0 0 a8 32 40 21 40 20
+d1 0 49 1 48 0 c9 1
+c1 6e 41 41 a1 98 d2 f6
+f0 1 f0 4e 42 40 40 32
+40 2b 44 32 44 2b dc 6
+cd f0 c5 1 ac 21 dd 1
+ac 20 45 32 45 2b dd 1
+c9 1 c1 28 41 40 e6 6
+40 32 40 2b 40 40 ff 0
+0 0 ff ff 0 ff ff ff
 0 ff 5*0 ff 0 ff ff ff
 0 ff 0 ff ff ff 0 7*ff
-5*0 ff ff ff 0 5*ff 0 5*ff
-0 ff ff ff 5*0 7*ff 5*0 ff
-ff ff 0 5*ff 0 ff ff ff
-0 ff 0 4*ff 0 0 9*ff 0
-ff ff 0 0 ff 0 ff 0
-0 ff ff 0 0 0 ff ff
-ff 0 ff 0 0 ff ff 0
-ff ff 0 0 7*ff 0 5*ff 0
-5*ff 0 5*ff 0 5*ff 5*0 7*ff 0
-ff ff ff 0 ff 0 0 ff
-0 0 ff 0 ff 0 ff 0
+4*0 ff ff 0 ff ff ff 0
+ff 4*0 ff ff 0 ff ff ff
+0 ff 4*0 9*ff 0 0 0 ff
 ff 0 ff ff ff 0 ff 0
-ff ff ff 0 7*ff 0 ff ff
-ff 0 ff 0 0 ff ff 0
-ff 0 ff 0 ff 0 ff 0
-ff ff 0 0 ff 0 ff ff
-ff 0 8*ff 0 0 0 ff ff
+5*ff 0 ff ff ff 0 ff ff
+0 0 0 8*ff 4*0 ff ff 0
+ff ff ff 0 ff 0 ff ff
+ff 0 ff 0 ff ff ff 0
+ff 4*0 8*ff 5*0 ff 0 5*ff 4*0
+ff ff 0 5*ff 5*0 7*ff 5*0 ff
+0 5*ff 5*0 ff 0 5*ff 0 11*ff
+5*0 ff 0 5*ff 0 ff 0 0
+0 ff 0 ff ff ff 0 ff
+5*0 7*ff 0 ff ff ff 0 ff
+0 ff ff ff 0 ff 5*0 ff
 0 ff ff ff 0 ff 0 ff
-ff ff 0 ff 0 ff ff ff
-0 ff ff 0 0 0 8*ff 4*0
-ff ff 0 ff ff ff 0 ff
-4*0 ff ff 0 5*ff 0 12*ff 0
+ff ff 0 7*ff 5*0 ff ff ff
+0 5*ff 0 5*ff 0 ff ff ff
+5*0 7*ff 5*0 ff ff ff 0 5*ff
+0 ff ff ff 0 ff 0 4*ff
+0 0 9*ff 0 ff ff 0 0
+ff 0 ff 0 0 ff ff 0
+0 0 ff ff ff 0 ff 0
+0 ff ff 0 ff ff 0 0
+7*ff 0 5*ff 0 5*ff 0 5*ff 0
+5*ff 5*0 7*ff 0 ff ff ff 0
+ff 0 0 ff 0 0 ff 0
+ff 0 ff 0 ff 0 ff ff
+ff 0 ff 0 ff ff ff 0
+7*ff 0 ff ff ff 0 ff 0
+0 ff ff 0 ff 0 ff 0
+ff 0 ff 0 ff ff 0 0
+ff 0 ff ff ff 0 8*ff 0
 0 0 ff ff 0 ff ff ff
 0 ff 0 ff ff ff 0 ff
-0 ff ff 0 ff ff ff 0
-0 ff 0 7*ff 4*0 ff ff 0
-ff ff ff 0 ff 4*0 ff ff
-0 ff 0 ff ff ff 0 ff
-ff 0 9*ff 4*0 ff 0 6*ff 0
-0 0 6*ff 0 ff ff 0 0
-0 8*ff 5*0 ff ff ff 0 5*ff
-0 5*ff 0 5*ff 0 9*ff 0 ff
-ff ff 0 ff 0 ff ff ff
-0 ff 0 ff ff ff 0 ff
 0 ff ff ff 0 ff ff 0
-0 0 8*ff 0 ff ff ff 0
-ff 0 ff ff ff 0 ff ff
-0 ff 0 ff ff ff 0 ff
-0 4*ff 0 9*ff 0 ff ff ff
+0 0 8*ff 4*0 ff ff 0 ff
+ff ff 0 ff 4*0 ff ff 0
+5*ff 0 12*ff 0 0 0 ff ff
+0 ff ff ff 0 ff 0 ff
+ff ff 0 ff 0 ff ff 0
+ff ff ff 0 0 ff 0 7*ff
+4*0 ff ff 0 ff ff ff 0
+ff 4*0 ff ff 0 ff 0 ff
+ff ff 0 ff ff 0 9*ff 4*0
+ff 0 6*ff 0 0 0 6*ff 0
+ff ff 0 0 0 8*ff 5*0 ff
+ff ff 0 5*ff 0 5*ff 0 5*ff
+0 9*ff 0 ff ff ff 0 ff
+0 ff ff ff 0 ff 0 ff
+ff ff 0 ff 0 ff ff ff
+0 ff ff 0 0 0 8*ff 0
+ff ff ff 0 ff 0 ff ff
+ff 0 ff ff 0 ff 0 ff
+ff ff 0 ff 0 4*ff 0 9*ff
+0 ff ff ff 0 ff 0 ff
 0 ff 0 ff 0 ff 0 ff
 0 ff 0 ff 0 ff 0 ff
-0 ff 0 ff ff 0 ff 0
-8*ff 0 ff ff ff 0 ff ff
-0 ff 0 4*ff 0 4*ff 0 ff
-0 ff ff 0 ff ff ff 0
-7*ff 0 7*ff 0 5*ff 0 ff ff
-ff 0 9*ff 0 11*ff 0 11*ff 0
-19*ff 5*0 4*ff 0 4*ff 0 4*ff 0
-4*ff 5*0 7*ff 40 21 40 20 41
+ff 0 ff 0 8*ff 0 ff ff
+ff 0 ff ff 0 ff 0 4*ff
+0 4*ff 0 ff 0 ff ff 0
+ff ff ff 0 7*ff 0 7*ff 0
+5*ff 0 ff ff ff 0 9*ff 0
+11*ff 0 11*ff 0 19*ff 5*0 4*ff 0
+4*ff 0 4*ff 0 4*ff 5*0 7*ff d2
+0 4a 1 4a 0 cb 5 c3
+5c cc 5 c4 50 8a 32 43
+41 82 20 d8 1 d9 1 44
+40 41 32 41 2b 41 40 41
+42 43 0 40 21 40 20 41
 21 41 20 42 21 42 20 43
 21 43 20 44 21 44 20 45
-21 45 20 0 3 d0 41 d1
-0 ca 1 c2 4e f0 5 f0
-c6 42 40 0 4 45 32 45
+21 45 20 0 3 d0 e0 d5
+60 f0 5 f0 8a 45 40 de
+4 b0 98 e0 4 c9 5 c1
+62 cd 5 c5 42 f0 5 f0
+9e 45 40 b0 98 e0 4 d1
+0 cd 1 c5 24 f0 5 f0
+ae 45 40 e6 4 0 4 45
+32 45 2b 44 32 44 2b 43
+32 43 2b 42 32 42 2b 41
+32 41 2b 40 32 40 2b 0
+2 c8 f0 c0 d c9 5 c1
+66 81 21 d8 1 81 20 c8
+f0 c0 f d1 3 81 20 d2
+5 d3 5 d4 2 d5 1 42
+21 42 20 43 21 43 20 44
+21 44 20 45 21 45 20 42
+21 42 20 d0 40 99 98 d2
+88 f0 6 f0 a 42 40 41
+32 41 2b 88 99 c9 f0 c1
+1 88 21 d9 1 88 20 d9
+1 d0 0 88 20 45 32 45
 2b 44 32 44 2b 43 32 43
-2b 42 32 42 2b 41 32 41
-2b 40 32 40 2b 0 2 c8
-5 c0 9e c9 f0 c1 10 88
-21 d9 1 88 20 d0 3 c9
-f0 c1 12 88 20 d0 32 d1
-84 f0 6 f0 2 41 40 81
-98 d8 32 40 21 40 20 41
-21 41 20 d0 a d1 a d2
-60 f0 6 f0 1a 42 40 41
-32 41 2b 88 21 d9 1 88
-20 d9 1 42 32 42 2b 42
-21 42 20 49 0 4a 1 cd
-6 c5 a 45 44 40 32 40
-2b 40 32 40 2b 40 40 d0
-26 40 40
+2b 42 32 42 2b a2 99 ab
+99 48 0 4a 1 c9 6 c1
+58 d0 14 41 44 d0 2 41
+43 4b 1 c9 6 c1 64 d0
+14 41 44 d0 2 41 43 c9
+6 c1 6a 41 40 d1 0 a1
+9a 8c 98 c9 6 c1 6a 41
+40 d1 0 a9 9a 8d 98 c8
+5 c0 ea 40 40 40 32 40
+2b 40 40 d0 26 40 40
 </a>
     </comp>
     <wire from="(340,730)" to="(360,730)"/>
@@ -7815,12 +7821,12 @@ f0 c1 12 88 20 d0 32 d1
     <comp lib="6" loc="(670,870)" name="7414"/>
     <comp lib="6" loc="(840,220)" name="7432"/>
     <comp lib="6" loc="(940,1120)" name="7432"/>
-    <comp lib="8" loc="(1092,1121)" name="Text">
+    <comp lib="8" loc="(1090,1120)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="F"/>
     </comp>
-    <comp lib="8" loc="(1118,1315)" name="Text">
+    <comp lib="8" loc="(1115,1315)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="J"/>
@@ -7830,7 +7836,7 @@ f0 c1 12 88 20 d0 32 d1
       <a name="halign" val="left"/>
       <a name="text" val="D"/>
     </comp>
-    <comp lib="8" loc="(1243,434)" name="Text">
+    <comp lib="8" loc="(1240,430)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="K"/>
@@ -7840,12 +7846,12 @@ f0 c1 12 88 20 d0 32 d1
       <a name="halign" val="left"/>
       <a name="text" val="or this with immediate controll other one"/>
     </comp>
-    <comp lib="8" loc="(1399,494)" name="Text">
+    <comp lib="8" loc="(1395,490)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="L"/>
     </comp>
-    <comp lib="8" loc="(1400,549)" name="Text">
+    <comp lib="8" loc="(1400,545)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="M"/>
@@ -7860,37 +7866,37 @@ f0 c1 12 88 20 d0 32 d1
       <a name="halign" val="left"/>
       <a name="text" val="Mode 3 Lower"/>
     </comp>
-    <comp lib="8" loc="(2002,360)" name="Text">
+    <comp lib="8" loc="(2000,360)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="C"/>
     </comp>
-    <comp lib="8" loc="(2789,755)" name="Text">
+    <comp lib="8" loc="(2785,755)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="I"/>
     </comp>
-    <comp lib="8" loc="(403,480)" name="Text">
+    <comp lib="8" loc="(400,480)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="H"/>
     </comp>
-    <comp lib="8" loc="(607,203)" name="Text">
+    <comp lib="8" loc="(605,200)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="a"/>
     </comp>
-    <comp lib="8" loc="(664,352)" name="Text">
+    <comp lib="8" loc="(660,350)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="b"/>
     </comp>
-    <comp lib="8" loc="(773,951)" name="Text">
+    <comp lib="8" loc="(770,950)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="G"/>
     </comp>
-    <comp lib="8" loc="(986,226)" name="Text">
+    <comp lib="8" loc="(985,225)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="left"/>
       <a name="text" val="E"/>
@@ -10261,7 +10267,7 @@ f0 c1 12 88 20 d0 32 d1
       <a name="facing" val="north"/>
       <a name="label" val="ab"/>
     </comp>
-    <comp lib="12" loc="(440,330)" name="DIP_74157">
+    <comp lib="13" loc="(440,330)" name="DIP_74157">
       <a name="facing" val="west"/>
     </comp>
     <wire from="(350,320)" to="(440,320)"/>
@@ -10881,7 +10887,7 @@ f0 c1 12 88 20 d0 32 d1
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
-    <comp lib="12" loc="(160,110)" name="DIP_74138"/>
+    <comp lib="13" loc="(160,110)" name="DIP_74138"/>
     <wire from="(100,110)" to="(130,110)"/>
     <wire from="(100,120)" to="(130,120)"/>
     <wire from="(100,130)" to="(130,130)"/>
@@ -10935,8 +10941,8 @@ f0 c1 12 88 20 d0 32 d1
       <a name="output" val="true"/>
       <a name="width" val="16"/>
     </comp>
-    <comp lib="12" loc="(390,230)" name="DIP_74138"/>
-    <comp lib="12" loc="(390,320)" name="DIP_74138"/>
+    <comp lib="13" loc="(390,230)" name="DIP_74138"/>
+    <comp lib="13" loc="(390,320)" name="DIP_74138"/>
     <wire from="(180,250)" to="(190,250)"/>
     <wire from="(210,230)" to="(340,230)"/>
     <wire from="(210,240)" to="(330,240)"/>
@@ -11989,7 +11995,7 @@ f0 c1 12 88 20 d0 32 d1
       <a name="fanout" val="8"/>
       <a name="incoming" val="8"/>
     </comp>
-    <comp lib="12" loc="(810,320)" name="DIP_74374">
+    <comp lib="13" loc="(810,320)" name="DIP_74374">
       <a name="facing" val="north"/>
     </comp>
     <wire from="(1030,150)" to="(1040,150)"/>
@@ -12363,7 +12369,7 @@ f0 c1 12 88 20 d0 32 d1
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
-    <comp lib="12" loc="(160,110)" name="DIP_74138"/>
+    <comp lib="13" loc="(160,110)" name="DIP_74138"/>
     <wire from="(100,110)" to="(130,110)"/>
     <wire from="(100,120)" to="(130,120)"/>
     <wire from="(100,130)" to="(130,130)"/>
@@ -12416,8 +12422,8 @@ f0 c1 12 88 20 d0 32 d1
       <a name="output" val="true"/>
       <a name="width" val="16"/>
     </comp>
-    <comp lib="12" loc="(390,230)" name="DIP_74138"/>
-    <comp lib="12" loc="(390,320)" name="DIP_74138"/>
+    <comp lib="13" loc="(390,230)" name="DIP_74138"/>
+    <comp lib="13" loc="(390,320)" name="DIP_74138"/>
     <wire from="(180,250)" to="(190,250)"/>
     <wire from="(210,230)" to="(340,230)"/>
     <wire from="(210,240)" to="(330,240)"/>
@@ -12516,11 +12522,11 @@ f0 c1 12 88 20 d0 32 d1
       <a name="fanout" val="5"/>
       <a name="incoming" val="5"/>
     </comp>
-    <comp lib="12" loc="(600,320)" name="DIP_74138"/>
-    <comp lib="12" loc="(840,230)" name="DIP_74138"/>
-    <comp lib="12" loc="(840,320)" name="DIP_74138"/>
-    <comp lib="12" loc="(840,410)" name="DIP_74138"/>
-    <comp lib="12" loc="(840,500)" name="DIP_74138"/>
+    <comp lib="13" loc="(600,320)" name="DIP_74138"/>
+    <comp lib="13" loc="(840,230)" name="DIP_74138"/>
+    <comp lib="13" loc="(840,320)" name="DIP_74138"/>
+    <comp lib="13" loc="(840,410)" name="DIP_74138"/>
+    <comp lib="13" loc="(840,500)" name="DIP_74138"/>
     <wire from="(1000,470)" to="(1000,490)"/>
     <wire from="(1000,470)" to="(1160,470)"/>
     <wire from="(1010,480)" to="(1010,500)"/>

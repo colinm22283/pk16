@@ -1,18 +1,14 @@
 #include <iostream>
 
-#include "compiler.hpp"
+#include <cli_parser.hpp>
+#include <compiler.hpp>
 
 int main(int argc, const char ** argv) {
-    try {
-        Compiler compiler;
+    auto cli_config = parse_cli_args(argc, argv);
 
-        for (int i = 1; i < argc - 1; i++) compiler.add_source_file(argv[i]);
-
-        compiler.print_symbols();
-
-        compiler.write(argv[argc - 1]);
-    }
-    catch (std::exception & e) {
-        std::cerr << "Error: " << e.what() << "\n";
+    std::vector<Compiler> compilers;
+    compilers.reserve(cli_config.in_files.size());
+    for (auto & file : cli_config.in_files) {
+        compilers.emplace_back(cli_config.config, file);
     }
 }

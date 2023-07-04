@@ -9,8 +9,5 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/compiler/bin)
 include_directories(${PROJECT_SOURCE_DIR}/compiler/header/)
 
 add_executable(pk16
-    compiler/source/add_file.cpp
-    compiler/source/evaluate.cpp
-    compiler/source/main.cpp
-    compiler/source/run.cpp
-)
+        compiler/source/main.cpp
+        )

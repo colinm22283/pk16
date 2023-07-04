@@ -25,6 +25,8 @@ interrupt:
         jmp a
 
 #include "/lib/heap/init.asm"
+#include "/lib/gpu/fonts/default.asm"
+#include "/lib/gpu/font.asm"
 
 #include "out.asm"
 

@@ -1,0 +1,6 @@
+#ifndef _MATH_PKC
+#define _MATH_PKC
+
+extern def m_mult(num1, num2) requires(a, b, c, d) returns;
+
+#endif

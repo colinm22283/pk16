@@ -1,6 +1,6 @@
 #once
 
-c:
+color:
     .RED   = 0b11100000
     .GREEN = 0b00011100
     .BLUE  = 0b00000011

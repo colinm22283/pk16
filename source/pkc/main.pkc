@@ -1,18 +1,25 @@
-const u8* str = "ABCD";
+const string str_a = "STRING A";
+const string str_b = "STRING B";
 
-def main() {
-    use stp;
-    alias alloc f; alloc = stp;
-    stp <+ 4;
+extern def gpu_print_str(str, offset) requires(all);
 
-    alias str_ptr e; str_ptr <= str;
-    alias ch d; ch ^<_ str_ptr;
+def print_strings(str_pp, count) requires(a, b, c, d) {
+    c <= str_pp;
+    c <+ count;
 
-    c <= 0;
-    while ch != c {
-        ch _>^ alloc;
-        ch ^<_ str_ptr;
+    while str_pp < c {
+        gpu_print_str(str_pp, 0);
+
+        str_pp <+ 1;
     }
+}
 
-    stp <- 4;
+def main() requires(all) {
+    string strs[2];
+
+    a = strs;
+    str_a __>^ a
+    str_b __>  a
+
+    print_strings(strs, 2);
 }
