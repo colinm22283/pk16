@@ -20,6 +20,7 @@ inline cli_args_results_t parse_cli_args(int argc, const char ** argv) {
             char opt = argv[i][1];
             switch (opt) {
                 case 'o': results.config.out_file = argv[++i]; break;
+                case 'P': results.config.output_preprocessor = true; break;
                 default: throw std::runtime_error("Unknown option \"" + std::string(argv[i]) + "\"");
             }
         }

@@ -1,5 +1,9 @@
-const string str_a = "STRING A";
-const string str_b = "STRING B";
+#include <math.pkh>
+
+const string str_a = "STRING A\0";
+const string str_b = "STRING B\0";
+
+static u16 ram_int = 100;
 
 extern def gpu_print_str(str, offset) requires(all);
 
@@ -15,7 +19,7 @@ def print_strings(str_pp, count) requires(a, b, c, d) {
 }
 
 def main() requires(all) {
-    string strs[2];
+    stalloc strs 2;
 
     a = strs;
     str_a __>^ a

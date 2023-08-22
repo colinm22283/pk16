@@ -4,6 +4,7 @@
 
 struct callable_symbol_t {
     std::string name;
+    std::string assembled;
     bool external;
     bool returns;
 };
@@ -18,9 +19,10 @@ struct ram_symbol_t {
     std::string name;
     std::string value;
     int size;
+    bool has_value;
+    bool is_string;
 };
 
-struct uninit_ram_symbol_t {
+struct uninit_symbol_t {
     std::string name;
-    int size;
 };

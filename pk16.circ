@@ -5,8 +5,7 @@
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="appear" val="center"/>
-      <a name="fanout" val="8"/>
-      <a name="incoming" val="8"/>
+      <a name="facing" val="south"/>
     </tool>
     <tool name="Pin">
       <a name="appearance" val="classic"/>
@@ -26,6 +25,7 @@
       <a name="facing" val="north"/>
     </tool>
     <tool name="Constant">
+      <a name="facing" val="west"/>
       <a name="value" val="0x0"/>
     </tool>
     <tool name="Power">
@@ -117,8 +117,8 @@
   <lib desc="#BFH-Praktika" name="9"/>
   <lib desc="#Input/Output-Extra" name="10"/>
   <lib desc="#Soc" name="11"/>
-  <lib desc="file#modules\74x_library.circ" name="12"/>
-  <lib desc="file#modules\logi7400\logi7400dip.circ" name="13"/>
+  <lib desc="file#modules/74x_library.circ" name="12"/>
+  <lib desc="file#modules/logi7400/logi7400dip.circ" name="13"/>
   <main name="version_2"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -6485,7 +6485,7 @@
       <a name="contents">addr/data: 15 8
 ce 80 c6 0 d0 2 c9 f0
 c1 0 88 20 d0 2a f0 0
-f0 14 40 40 c8 5 c0 cc
+f0 14 40 40 c8 5 c0 82
 f0 0 f0 1e 40 40 d0 4
 c9 f0 c1 0 88 20 d0 28
 40 40 d0 0 c9 84 c1 0
@@ -6495,148 +6495,123 @@ c0 f8 d9 1 88 21 d9 1
 88 21 d9 1 88 20 d9 1
 c8 80 c0 0 88 21 d9 1
 88 20 40 32 40 2b 40 40
-82 98 c8 f0 c0 1 d1 0
-81 21 d8 1 81 20 d8 1
-d1 40 49 1 91 98 d2 0
-4a 0 d3 7c 81 20 da 1
-43 44 40 32 40 2b 40 40
-d2 0 4a 1 82 98 49 0
-d0 0 d3 a6 43 41 e1 1
-90 98 d3 a6 43 41 d3 a0
-90 99 e1 1 43 43 41 32
-41 2b 41 40 8d 98 cc f0
-c4 1 a3 21 dc 1 a3 20
-43 21 43 20 d3 0 4b 1
-a9 98 49 0 dc 1 83 32
-a3 20 e1 1 d8 1 d3 c6
-43 43 e2 1 43 32 43 2b
-db 40 e4 2 a3 21 dc 1
-a3 20 43 21 43 20 4a 0
-d3 c0 43 43 40 32 40 2b
-40 32 40 2b 40 40 41 21
-41 20 e0 41 81 98 d0 24
-d2 88 f0 1 f0 8 42 40
-c9 1 c1 76 88 99 d1 6
-d2 6 43 32 43 2b d4 ac
-f0 1 f0 1e 44 40 40 32
-40 2b 40 40 85 98 8c 98
-45 21 45 20 44 21 44 20
-d0 0 a8 32 40 21 40 20
-d1 0 49 1 48 0 c9 1
-c1 6e 41 41 a1 98 d2 f6
-f0 1 f0 4e 42 40 40 32
-40 2b 44 32 44 2b dc 6
-cd f0 c5 1 ac 21 dd 1
-ac 20 45 32 45 2b dd 1
-c9 1 c1 28 41 40 e6 6
-40 32 40 2b 40 40 ff 0
-0 0 ff ff 0 ff ff ff
-0 ff 5*0 ff 0 ff ff ff
-0 ff 0 ff ff ff 0 7*ff
-4*0 ff ff 0 ff ff ff 0
-ff 4*0 ff ff 0 ff ff ff
-0 ff 4*0 9*ff 0 0 0 ff
-ff 0 ff ff ff 0 ff 0
-5*ff 0 ff ff ff 0 ff ff
-0 0 0 8*ff 4*0 ff ff 0
-ff ff ff 0 ff 0 ff ff
-ff 0 ff 0 ff ff ff 0
-ff 4*0 8*ff 5*0 ff 0 5*ff 4*0
-ff ff 0 5*ff 5*0 7*ff 5*0 ff
-0 5*ff 5*0 ff 0 5*ff 0 11*ff
-5*0 ff 0 5*ff 0 ff 0 0
-0 ff 0 ff ff ff 0 ff
-5*0 7*ff 0 ff ff ff 0 ff
-0 ff ff ff 0 ff 5*0 ff
-0 ff ff ff 0 ff 0 ff
-ff ff 0 7*ff 5*0 ff ff ff
-0 5*ff 0 5*ff 0 ff ff ff
-5*0 7*ff 5*0 ff ff ff 0 5*ff
-0 ff ff ff 0 ff 0 4*ff
-0 0 9*ff 0 ff ff 0 0
-ff 0 ff 0 0 ff ff 0
-0 0 ff ff ff 0 ff 0
-0 ff ff 0 ff ff 0 0
-7*ff 0 5*ff 0 5*ff 0 5*ff 0
-5*ff 5*0 7*ff 0 ff ff ff 0
-ff 0 0 ff 0 0 ff 0
-ff 0 ff 0 ff 0 ff ff
-ff 0 ff 0 ff ff ff 0
-7*ff 0 ff ff ff 0 ff 0
-0 ff ff 0 ff 0 ff 0
-ff 0 ff 0 ff ff 0 0
-ff 0 ff ff ff 0 8*ff 0
-0 0 ff ff 0 ff ff ff
-0 ff 0 ff ff ff 0 ff
-0 ff ff ff 0 ff ff 0
-0 0 8*ff 4*0 ff ff 0 ff
-ff ff 0 ff 4*0 ff ff 0
-5*ff 0 12*ff 0 0 0 ff ff
-0 ff ff ff 0 ff 0 ff
-ff ff 0 ff 0 ff ff 0
-ff ff ff 0 0 ff 0 7*ff
-4*0 ff ff 0 ff ff ff 0
-ff 4*0 ff ff 0 ff 0 ff
-ff ff 0 ff ff 0 9*ff 4*0
-ff 0 6*ff 0 0 0 6*ff 0
-ff ff 0 0 0 8*ff 5*0 ff
-ff ff 0 5*ff 0 5*ff 0 5*ff
-0 9*ff 0 ff ff ff 0 ff
-0 ff ff ff 0 ff 0 ff
+ff 0 0 0 ff ff 0 ff
+ff ff 0 ff 5*0 ff 0 ff
 ff ff 0 ff 0 ff ff ff
-0 ff ff 0 0 0 8*ff 0
+0 7*ff 4*0 ff ff 0 ff ff
+ff 0 ff 4*0 ff ff 0 ff
+ff ff 0 ff 4*0 9*ff 0 0
+0 ff ff 0 ff ff ff 0
+ff 0 5*ff 0 ff ff ff 0
+ff ff 0 0 0 8*ff 4*0 ff
+ff 0 ff ff ff 0 ff 0
 ff ff ff 0 ff 0 ff ff
-ff 0 ff ff 0 ff 0 ff
-ff ff 0 ff 0 4*ff 0 9*ff
+ff 0 ff 4*0 8*ff 5*0 ff 0
+5*ff 4*0 ff ff 0 5*ff 5*0 7*ff
+5*0 ff 0 5*ff 5*0 ff 0 5*ff
+0 11*ff 5*0 ff 0 5*ff 0 ff
+0 0 0 ff 0 ff ff ff
+0 ff 5*0 7*ff 0 ff ff ff
+0 ff 0 ff ff ff 0 ff
+5*0 ff 0 ff ff ff 0 ff
+0 ff ff ff 0 7*ff 5*0 ff
+ff ff 0 5*ff 0 5*ff 0 ff
+ff ff 5*0 7*ff 5*0 ff ff ff
+0 5*ff 0 ff ff ff 0 ff
+0 4*ff 0 0 9*ff 0 ff ff
+0 0 ff 0 ff 0 0 ff
+ff 0 0 0 ff ff ff 0
+ff 0 0 ff ff 0 ff ff
+0 0 7*ff 0 5*ff 0 5*ff 0
+5*ff 0 5*ff 5*0 7*ff 0 ff ff
+ff 0 ff 0 0 ff 0 0
+ff 0 ff 0 ff 0 ff 0
+ff ff ff 0 ff 0 ff ff
+ff 0 7*ff 0 ff ff ff 0
+ff 0 0 ff ff 0 ff 0
+ff 0 ff 0 ff 0 ff ff
+0 0 ff 0 ff ff ff 0
+8*ff 0 0 0 ff ff 0 ff
+ff ff 0 ff 0 ff ff ff
+0 ff 0 ff ff ff 0 ff
+ff 0 0 0 8*ff 4*0 ff ff
+0 ff ff ff 0 ff 4*0 ff
+ff 0 5*ff 0 12*ff 0 0 0
+ff ff 0 ff ff ff 0 ff
 0 ff ff ff 0 ff 0 ff
+ff 0 ff ff ff 0 0 ff
+0 7*ff 4*0 ff ff 0 ff ff
+ff 0 ff 4*0 ff ff 0 ff
+0 ff ff ff 0 ff ff 0
+9*ff 4*0 ff 0 6*ff 0 0 0
+6*ff 0 ff ff 0 0 0 8*ff
+5*0 ff ff ff 0 5*ff 0 5*ff
+0 5*ff 0 9*ff 0 ff ff ff
+0 ff 0 ff ff ff 0 ff
+0 ff ff ff 0 ff 0 ff
+ff ff 0 ff ff 0 0 0
+8*ff 0 ff ff ff 0 ff 0
+ff ff ff 0 ff ff 0 ff
+0 ff ff ff 0 ff 0 4*ff
+0 9*ff 0 ff ff ff 0 ff
 0 ff 0 ff 0 ff 0 ff
 0 ff 0 ff 0 ff 0 ff
-ff 0 ff 0 8*ff 0 ff ff
-ff 0 ff ff 0 ff 0 4*ff
-0 4*ff 0 ff 0 ff ff 0
-ff ff ff 0 7*ff 0 7*ff 0
-5*ff 0 ff ff ff 0 9*ff 0
-11*ff 0 11*ff 0 19*ff 5*0 4*ff 0
-4*ff 0 4*ff 0 4*ff 5*0 7*ff d2
-0 4a 1 4a 0 cb 5 c3
-5c cc 5 c4 50 8a 32 43
-41 82 20 d8 1 d9 1 44
-40 41 32 41 2b 41 40 41
-42 43 0 40 21 40 20 41
-21 41 20 42 21 42 20 43
-21 43 20 44 21 44 20 45
-21 45 20 0 3 d0 e0 d5
-60 f0 5 f0 8a 45 40 de
-4 b0 98 e0 4 c9 5 c1
-62 cd 5 c5 42 f0 5 f0
-9e 45 40 b0 98 e0 4 d1
-0 cd 1 c5 24 f0 5 f0
-ae 45 40 e6 4 0 4 45
-32 45 2b 44 32 44 2b 43
-32 43 2b 42 32 42 2b 41
-32 41 2b 40 32 40 2b 0
-2 c8 f0 c0 d c9 5 c1
-66 81 21 d8 1 81 20 c8
-f0 c0 f d1 3 81 20 d2
-5 d3 5 d4 2 d5 1 42
-21 42 20 43 21 43 20 44
-21 44 20 45 21 45 20 42
-21 42 20 d0 40 99 98 d2
-88 f0 6 f0 a 42 40 41
-32 41 2b 88 99 c9 f0 c1
-1 88 21 d9 1 88 20 d9
-1 d0 0 88 20 45 32 45
+0 ff ff 0 ff 0 8*ff 0
+ff ff ff 0 ff ff 0 ff
+0 4*ff 0 4*ff 0 ff 0 ff
+ff 0 ff ff ff 0 7*ff 0
+7*ff 0 5*ff 0 ff ff ff 0
+9*ff 0 11*ff 0 11*ff 0 19*ff 5*0
+4*ff 0 4*ff 0 4*ff 0 4*ff 5*0
+7*ff d2 0 4a 1 82 98 49
+0 d0 0 cb 4 c3 50 43
+41 e1 1 90 98 cb 4 c3
+50 43 41 cb 4 c3 4a 90
+99 e1 1 43 43 41 32 41
+2b 41 40 8d 98 cc f0 c4
+1 a3 21 dc 1 a3 20 43
+21 43 20 d3 0 4b 1 a9
+98 49 0 dc 1 83 32 a3
+20 e1 1 d8 1 cb 4 c3
+70 43 43 e2 1 43 32 43
+2b db 40 e4 2 a3 21 dc
+1 a3 20 43 21 43 20 4a
+0 cb 4 c3 6a 43 43 40
+32 40 2b 40 32 40 2b 40
+40 41 21 41 20 e0 41 81
+98 d0 24 ca 4 c2 2c f0
+4 f0 b8 42 40 d1 60 88
+99 d1 6 d2 6 43 32 43
+2b cc 4 c4 56 f0 4 f0
+ce 44 40 40 32 40 2b 40
+40 85 98 8c 98 45 21 45
+20 44 21 44 20 d0 0 a8
+32 40 21 40 20 d1 0 49
+1 48 0 c9 5 c1 20 41
+41 a1 98 ca 4 c2 a4 f0
+5 f0 0 42 40 40 32 40
+2b 44 32 44 2b dc 6 cd
+f0 c5 1 ac 21 dd 1 ac
+20 45 32 45 2b dd 1 c9
+4 c1 d8 41 40 e6 6 40
+32 40 2b 40 40 40 21 40
+20 41 21 41 20 42 21 42
+20 43 21 43 20 44 21 44
+20 45 21 45 20 0 3 c8
+88 c0 0 81 2b d8 1 81
+32 d9 1 e0 1 81 21 d8
+1 81 20 d9 40 88 98 d1
+0 cd 4 c5 a4 f0 5 f0
+66 45 40 0 4 45 32 45
 2b 44 32 44 2b 43 32 43
-2b 42 32 42 2b a2 99 ab
-99 48 0 4a 1 c9 6 c1
-58 d0 14 41 44 d0 2 41
-43 4b 1 c9 6 c1 64 d0
-14 41 44 d0 2 41 43 c9
-6 c1 6a 41 40 d1 0 a1
-9a 8c 98 c9 6 c1 6a 41
-40 d1 0 a9 9a 8d 98 c8
-5 c0 ea 40 40 40 32 40
-2b 40 40 d0 26 40 40
+2b 42 32 42 2b 41 32 41
+2b 40 32 40 2b 0 2 c8
+88 c0 0 d1 0 81 21 d8
+1 81 20 c8 f0 c0 d c9
+5 c1 28 81 21 d8 1 81
+20 c8 f0 c0 f d1 3 81
+20 c8 5 c0 a8 40 40 d0
+26 40 40
 </a>
     </comp>
     <wire from="(340,730)" to="(360,730)"/>
