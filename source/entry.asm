@@ -9,8 +9,8 @@ imm a, flags.carry_disable
 imm b, flags
 wrl b, a
 
-imm a, heap_init
-cal a
+; imm a, heap_init
+; cal a
 
 imm a, main
 cal a
@@ -24,9 +24,9 @@ interrupt:
     .loop:
         jmp a
 
-#include "/lib/heap/init.asm"
+; #include "/lib/heap/init.asm"
 
-#include "/pkc/out.asm"
+#include "/projects/ball/main.asm"
 
 imm a, interrupt
 jmp a

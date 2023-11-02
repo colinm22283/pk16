@@ -1,4 +1,0 @@
-#once
-
-#include "config.asm"
-
