@@ -1,46 +1,20 @@
 #pragma once
 
-#include <string>
 #include <vector>
-#include <algorithm>
-#include <cstdint>
 
-#include "types.hpp"
+#include <symbol.hpp>
 
-class SymbolTable {
-public:
-    struct symbol_t {
-        std::string name;
-        std::string content;
-        var_type_t type;
-        bool is_rom;
+struct SymbolTable {
+    std::vector<callable_symbol_t> callable;
+    std::vector<rom_symbol_t> rom;
+    std::vector<ram_symbol_t> ram;
+    std::vector<uninit_symbol_t> uninit;
 
-        inline symbol_t() { }
-        inline symbol_t(std::string && _name): name(std::move(_name)) { }
-
-        inline std::string to_asm() {
-            if (is_rom) {
-                std::string out = "#bank rom\n";
-                
-                out += name + ":\n";
-                out += content + "\n";
-
-                return out;
-            } else {
-                std::string out = "#bank ram\n";
-                out += name + ":\n";
-                out += "#res \n" + type.size;
-                return out;
-            }
-        }
-    };
-
-    std::vector<symbol_t> symbols;
-
-    inline symbol_t & add(std::string sym_name) {
-        return symbols.emplace_back(std::move(sym_name));
-    }
-    inline void add(symbol_t sym_name) {
-        symbols.push_back(sym_name);
+    inline bool symbol_exists(const std::string & name) {
+        for (auto & s : callable) if (s.name == name) return true;
+        for (auto & s : rom) if (s.name == name) return true;
+        for (auto & s : ram) if (s.name == name) return true;
+        for (auto & s : uninit) if (s.name == name) return true;
+        return false;
     }
 };

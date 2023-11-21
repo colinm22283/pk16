@@ -24,9 +24,3 @@ main:
         ; wrl e, a
 
         jlt d
-
-
-interrupt:
-    imm a, .loop
-    .loop:
-        jmp a

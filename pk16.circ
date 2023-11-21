@@ -104,7 +104,7 @@
       <a name="facing" val="south"/>
     </tool>
     <tool name="7432">
-      <a name="facing" val="south"/>
+      <a name="facing" val="west"/>
     </tool>
     <tool name="74139">
       <a name="facing" val="north"/>
@@ -120,13 +120,13 @@
   <lib desc="#BFH-Praktika" name="9"/>
   <lib desc="#Input/Output-Extra" name="10"/>
   <lib desc="#Soc" name="11"/>
-  <lib desc="file#modules/74x_library.circ" name="12"/>
-  <lib desc="file#modules/logi7400/logi7400dip.circ" name="13"/>
+  <lib desc="file#modules/logi7400/logi7400dip.circ" name="12"/>
+  <lib desc="file#modules/74x_library.circ" name="13"/>
   <main name="version_2"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
     <a name="simlimit" val="1000"/>
-    <a name="simrand" val="0"/>
+    <a name="simrand" val="32"/>
   </options>
   <mappings>
     <tool lib="8" map="Button2" name="Menu Tool"/>
@@ -657,7 +657,7 @@
     <a name="circuit" val="version_2"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="downloadFrequency" val="2083333.3333333333"/>
-    <a name="simulationFrequency" val="32.0"/>
+    <a name="simulationFrequency" val="2048000.0"/>
     <comp lib="0" loc="(1290,1100)" name="Pull Resistor"/>
     <comp lib="0" loc="(1300,1100)" name="Pull Resistor"/>
     <comp lib="0" loc="(1310,1100)" name="Pull Resistor"/>
@@ -6572,15 +6572,12 @@
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 15 8
 ce 80 c6 0 d0 2 c9 f0
-c1 0 88 20 d0 32 f0 0
+c1 0 88 20 d0 20 f0 0
 f0 14 40 40 d0 4 c9 f0
 c1 0 88 20 d0 1e 40 40
-40 21 40 20 c8 f0 c0 7
-81 32 d5 45 40 32 40 2b
-0 2 c8 f0 c0 d d1 20
-81 21 d8 1 81 20 c8 f0
-c0 f d1 11 81 20 d0 48
-40 40 45 32 45 2b 45 40
+d0 1 81 98 c3 30 cb 0
+48 0 ca 27 c2 10 4a 1
+82 98 88 98 91 99 43 44
 d0 1c 40 40
 </a>
     </comp>
@@ -7219,13 +7216,6 @@ d0 1c 40 40
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="downloadFrequency" val="1.0"/>
     <a name="simulationFrequency" val="32.0"/>
-    <boardmap boardname="CYCLONE_V_GX_STARTER">
-      <mc/>
-      <mc/>
-      <mc/>
-      <mc/>
-      <mc/>
-    </boardmap>
     <comp lib="0" loc="(300,370)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="label" val="read_inst"/>
@@ -9646,13 +9636,6 @@ d0 1c 40 40
     <a name="circuit" val="adder_16"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="32.0"/>
-    <boardmap boardname="CYCLONE_V_GX_STARTER">
-      <mc/>
-      <mc/>
-      <mc/>
-      <mc/>
-      <mc/>
-    </boardmap>
     <comp lib="0" loc="(180,240)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="label" val="a"/>
@@ -10277,7 +10260,7 @@ d0 1c 40 40
       <a name="facing" val="north"/>
       <a name="label" val="ab"/>
     </comp>
-    <comp lib="13" loc="(440,330)" name="DIP_74157">
+    <comp lib="12" loc="(440,330)" name="DIP_74157">
       <a name="facing" val="west"/>
     </comp>
     <wire from="(350,320)" to="(440,320)"/>
@@ -10688,12 +10671,6 @@ d0 1c 40 40
     <a name="circuit" val="register_8"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="32.0"/>
-    <boardmap boardname="CYCLONE_V_GX_STARTER">
-      <mc/>
-      <mc/>
-      <mc/>
-      <mc/>
-    </boardmap>
     <comp lib="0" loc="(400,520)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="label" val="data"/>
@@ -10904,7 +10881,7 @@ d0 1c 40 40
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
-    <comp lib="13" loc="(160,110)" name="DIP_74138"/>
+    <comp lib="12" loc="(160,110)" name="DIP_74138"/>
     <wire from="(100,110)" to="(130,110)"/>
     <wire from="(100,120)" to="(130,120)"/>
     <wire from="(100,130)" to="(130,130)"/>
@@ -10958,8 +10935,8 @@ d0 1c 40 40
       <a name="output" val="true"/>
       <a name="width" val="16"/>
     </comp>
-    <comp lib="13" loc="(390,230)" name="DIP_74138"/>
-    <comp lib="13" loc="(390,320)" name="DIP_74138"/>
+    <comp lib="12" loc="(390,230)" name="DIP_74138"/>
+    <comp lib="12" loc="(390,320)" name="DIP_74138"/>
     <wire from="(180,250)" to="(190,250)"/>
     <wire from="(210,230)" to="(340,230)"/>
     <wire from="(210,240)" to="(330,240)"/>
@@ -12014,7 +11991,7 @@ d0 1c 40 40
       <a name="fanout" val="8"/>
       <a name="incoming" val="8"/>
     </comp>
-    <comp lib="13" loc="(810,320)" name="DIP_74374">
+    <comp lib="12" loc="(810,320)" name="DIP_74374">
       <a name="facing" val="north"/>
     </comp>
     <wire from="(1030,150)" to="(1040,150)"/>
@@ -12356,11 +12333,6 @@ d0 1c 40 40
     <a name="circuit" val="switched_decoder_3"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="32.0"/>
-    <boardmap boardname="CYCLONE_V_GX_STARTER">
-      <mc/>
-      <mc/>
-      <mc/>
-    </boardmap>
     <comp lib="0" loc="(100,150)" name="Ground">
       <a name="facing" val="west"/>
     </comp>
@@ -12394,7 +12366,7 @@ d0 1c 40 40
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
-    <comp lib="13" loc="(160,110)" name="DIP_74138">
+    <comp lib="12" loc="(160,110)" name="DIP_74138">
       <a name="label" val="inst1"/>
     </comp>
     <wire from="(100,110)" to="(130,110)"/>
@@ -12449,8 +12421,8 @@ d0 1c 40 40
       <a name="output" val="true"/>
       <a name="width" val="16"/>
     </comp>
-    <comp lib="13" loc="(390,230)" name="DIP_74138"/>
-    <comp lib="13" loc="(390,320)" name="DIP_74138"/>
+    <comp lib="12" loc="(390,230)" name="DIP_74138"/>
+    <comp lib="12" loc="(390,320)" name="DIP_74138"/>
     <wire from="(180,250)" to="(190,250)"/>
     <wire from="(210,230)" to="(340,230)"/>
     <wire from="(210,240)" to="(330,240)"/>
@@ -12549,11 +12521,11 @@ d0 1c 40 40
       <a name="fanout" val="5"/>
       <a name="incoming" val="5"/>
     </comp>
-    <comp lib="13" loc="(600,320)" name="DIP_74138"/>
-    <comp lib="13" loc="(840,230)" name="DIP_74138"/>
-    <comp lib="13" loc="(840,320)" name="DIP_74138"/>
-    <comp lib="13" loc="(840,410)" name="DIP_74138"/>
-    <comp lib="13" loc="(840,500)" name="DIP_74138"/>
+    <comp lib="12" loc="(600,320)" name="DIP_74138"/>
+    <comp lib="12" loc="(840,230)" name="DIP_74138"/>
+    <comp lib="12" loc="(840,320)" name="DIP_74138"/>
+    <comp lib="12" loc="(840,410)" name="DIP_74138"/>
+    <comp lib="12" loc="(840,500)" name="DIP_74138"/>
     <wire from="(1000,470)" to="(1000,490)"/>
     <wire from="(1000,470)" to="(1160,470)"/>
     <wire from="(1010,480)" to="(1010,500)"/>
@@ -13334,7 +13306,6 @@ d0 1c 40 40
     <wire from="(1040,360)" to="(1040,410)"/>
     <wire from="(1040,360)" to="(1080,360)"/>
     <wire from="(1040,470)" to="(1040,520)"/>
-    <wire from="(1040,520)" to="(1040,620)"/>
     <wire from="(1040,520)" to="(1320,520)"/>
     <wire from="(1060,390)" to="(1060,410)"/>
     <wire from="(1060,390)" to="(1220,390)"/>
@@ -13417,5 +13388,6 @@ d0 1c 40 40
     <wire from="(960,490)" to="(960,500)"/>
     <wire from="(980,270)" to="(1430,270)"/>
     <wire from="(980,270)" to="(980,410)"/>
+    <wire from="(980,470)" to="(980,540)"/>
   </circuit>
 </project>

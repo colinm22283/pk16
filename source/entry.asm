@@ -26,7 +26,7 @@ interrupt:
 
 ; #include "/lib/heap/init.asm"
 
-#include "/projects/ball/main.asm"
+#include "/projects/fibonacci/main.asm"
 
 imm a, interrupt
 jmp a

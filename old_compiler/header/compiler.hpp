@@ -1,121 +1,121 @@
 #pragma once
 
-#include <iostream>
-#include <stack>
+#include <thread>
+#include <string>
+#include <algorithm>
+#include <fstream>
 
-#include "symbol_table.hpp"
-#include "types.hpp"
-#include "label_gen.hpp"
-
-struct eval_reg_t {
-    std::string name;
-    bool in_use = false;
-    std::vector<std::string> aliases;
-};
-
-enum scope_type_t {
-    ST_LOOP,
-    ST_WHILE_LT,
-    ST_WHILE_GT,
-    ST_WHILE_EQ,
-    ST_WHILE_NE,
-};
-struct scope_t {
-    std::string start_label;
-    std::string end_label;
-    scope_type_t type;
-    std::vector<bool> regs_used = { false, false, false, false, false, false, false, false };
-};
-
-struct eval_info_t {
-    std::vector<eval_reg_t> regs = {
-        {
-            .name = "a",
-            .aliases = { "return", },
-        },
-        {
-            .name = "b",
-        },
-        {
-            .name = "c",
-        },
-        {
-            .name = "d",
-        },
-        {
-            .name = "e",
-        },
-        {
-            .name = "f",
-        },
-        {
-            .name = "stp",
-        },
-        {
-            .name = "pc",
-        },
-    };
-
-    std::stack<scope_t> scopes;
-    LabelGenerator label_gen;
-
-    inline eval_reg_t & get_reg(std::string str) {
-        if (str == "a") return regs[0];
-        else if (str == "b") return regs[1];
-        else if (str == "c") return regs[2];
-        else if (str == "d") return regs[3];
-        else if (str == "e") return regs[4];
-        else if (str == "f") return regs[5];
-        else if (str == "stp") return regs[6];
-        else if (str == "pc") return regs[7];
-        else {
-            for (int i = 0; i < regs.size(); i++) {
-                for (int j = 0; j < regs[i].aliases.size(); j++) {
-                    if (str.substr(0, regs[i].aliases[j].size()) == regs[i].aliases[j]) return regs[i];
-                }
-            }
-
-            throw std::runtime_error("Unknown register alias \"" + str + "\"");
-        }
-    }
-
-    inline eval_reg_t & get_unused() {
-        for (int i = regs.size() - 3; i >= 0; i--) {
-            if (!regs[i].in_use) return regs[i];
-        }
-
-        throw std::runtime_error("Unable to find empty register");
-    }
-
-    inline void invalidate_all() {
-        for (int i = 0; i < regs.size() - 2; i++) {
-            regs[i].in_use = false;
-            regs[i].aliases = { };
-        }
-        regs[0].aliases = { "return" };
-    }
-};
+#include <config.hpp>
+#include <preprocessor.hpp>
+#include <symbol_table.hpp>
+#include <regex_patterns.hpp>
+#include <get_semilines.hpp>
 
 class Compiler {
 protected:
-public:
+    bool thread_active = true;
+    std::thread thread;
+
+    std::string output;
+    std::string copy_data;
     SymbolTable symbol_table;
-    TypeRegistry type_reg;
+
+    static void thread_funct(config_t & config, std::string path, SymbolTable & symbol_table, std::string & output, std::string & copy_data) {
+        std::ifstream file(path);
+
+        if (!file.is_open()) throw std::runtime_error("Unable to open file \"" + path + "\"");
+
+        std::string input;
+        while (true) {
+            char c;
+            if (!file.read(&c, sizeof(char))) break;
+            input += c;
+        }
+
+        std::string preprocessed = preprocessor(input);
+
+        if (config.output_preprocessor) {
+            std::ofstream out_file(path + ".pp");
+            if (!out_file.is_open()) throw std::runtime_error("Unable to open output file \"" + path + ".pp\"");
+            out_file << preprocessed;
+        }
+
+        std::vector<std::string> lines = get_semilines(preprocessed);
+
+        for (std::size_t i = 0; i < lines.size(); i++) {
+            std::string & line = lines[i];
+
+            std::smatch matches;
+
+            if (std::regex_match(line, matches, rom_symbol_regex)) {
+                rom_symbol_t sym;
+
+                std::string type_name = matches[1].str();
+
+                if (type_name == "u8") sym.size = 1;
+                else if (type_name == "u16") sym.size = 2;
+                else if (type_name == "string") sym.size = 0;
+                else throw std::runtime_error("Unknown typename \"" + type_name + "\"");
+
+                sym.name = matches[2].str();
+                sym.value = matches[3].str();
+
+                symbol_table.rom.push_back(sym);
+            }
+            else if (std::regex_match(line, matches, ram_symbol_regex)) {
+                ram_symbol_t sym;
+
+                std::string type_name = matches[1].str();
+
+                if (type_name == "u8") sym.size = 1;
+                else if (type_name == "u16") sym.size = 2;
+                else if (type_name == "string") {
+                    sym.size = (int) matches[3].length() - 2;
+                    sym.is_string = true;
+                }
+                else throw std::runtime_error("Unknown typename \"" + type_name + "\"");
+
+                sym.name = matches[2].str();
+                if (matches[3].length() > 0) sym.value = matches[3].str();
+                else sym.has_value = false;
+
+                symbol_table.ram.push_back(sym);
+            }
+        }
+
+        for (auto & sym : symbol_table.callable) { }
+        for (auto & sym : symbol_table.rom) {
+            output += sym.name + ": ";
+            if (sym.size == 0) output += "#d ";
+            else output += "#d" + std::to_string(sym.size * 8) + " ";
+            output += sym.value;
+            output += "\n";
+        }
+        for (auto & sym : symbol_table.ram) {
+            output += sym.name + ": #res " + std::to_string(sym.size * 8) + "\n";
+        }
+    }
 
 public:
-    void add_source_file(std::string path);
-    void write(std::string path);
-    std::string evaluate(std::string & line, eval_info_t & eval_info);
+    inline Compiler() = default;
+    inline Compiler(config_t & config, std::string path): thread(
+        thread_funct,
+        std::ref(config),
+        path,
+        std::ref(symbol_table),
+        std::ref(output)
+    ) { }
 
-    inline void print_symbols() {
-        std::cout << "Symbols: " << symbol_table.symbols.size() << "\n";
+    inline ~Compiler() {
+        if (thread_active) thread.join();
+    }
 
-        for (std::size_t i = 0; i < symbol_table.symbols.size(); i++) {
-            std::cout << "\tSymbol: \n";
-            
-            std::cout << "\t\tContent: ";
-            std::cout << symbol_table.symbols[i].content;
-            std::cout << "\n";
-        }
+    inline Compiler(Compiler &) = delete;
+    inline Compiler(Compiler && x) noexcept: thread(std::move(x.thread)) { }
+
+    inline std::string join() {
+        thread.join();
+        thread_active = false;
+        return output;
     }
 };
