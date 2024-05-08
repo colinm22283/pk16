@@ -1,2 +1,2 @@
-add_executable(pkc PUBLIC source/main.cpp)
+add_executable(pkc source/main.cpp)
 target_include_directories(pkc PUBLIC header)
