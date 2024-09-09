@@ -1,6 +1,14 @@
+.PHONY: all
+all: binary annotated
+
+.PHONY: binary
 binary:
-	cd source && customasm main.asm
+	cd firmware && $(MAKE) binary
 
-
+.PHONY: annotated
 annotated:
-	cd source && customasm main.asm -f annotated
+	cd firmware && $(MAKE) annotated
+
+.PHONY: clean
+clean:
+	cd firmware && $(MAKE) clean

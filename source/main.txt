@@ -1,4 +1,0 @@
- outp | addr | data (base 16)
-
-  0:0 |    0 |       ; entry:
-  0:0 |    0 | 01 10 ; add r0, r1
