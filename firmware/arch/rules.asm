@@ -1,3 +1,5 @@
+#once
+
 #subruledef reg {
     r0  => 0x0
     r1  => 0x1
@@ -23,6 +25,11 @@
     mov { d: reg }, { s: reg } => 0b00000000 @ s @ d
     add.r { d: reg }, { s: reg } => 0b00000001 @ s @ d
     sub.r { d: reg }, { s: reg } => 0b00000010 @ s @ d
+    and   { d: reg }, { s: reg } => 0b00000011 @ s @ d
+    or    { d: reg }, { s: reg } => 0b00000100 @ s @ d
+    xor   { d: reg }, { s: reg } => 0b00000101 @ s @ d
+    shl   { d: reg }, { s: reg } => 0b00000110 @ s @ d
+    shr   { d: reg }, { s: reg } => 0b00000111 @ s @ d
 
     jmp.l { d: reg } => 0b00010000 @ 0b0000 @ d
     br.l { d: reg } => 0b00010001 @ 0b0000 @ d
@@ -33,12 +40,18 @@
     cl { d: reg }, { s: reg } => 0b00010101 @ s @ d
     cle { d: reg }, { s: reg } => 0b00010110 @ s @ d
 
-    ldl { d: reg }, ({ s: reg }) => 0b00100000 @ s @ d
+    ld.l { d: reg }, { s: reg } => 0b00100000 @ s @ d
+    ld.u { d: reg }, { s: reg } => 0b00100001 @ s @ d
+    st.l { d: reg }, { s: reg } => 0b00100010 @ s @ d
+    st.u { d: reg }, { s: reg } => 0b00100011 @ s @ d
 
     pop.l { d: reg } => 0b00100101 @ 0b0000 @ d
     pop.u { d: reg } => 0b00100110 @ 0b0000 @ d
     psh.l { s: reg } => 0b00100111 @ s @ 0b0000
     psh.u { s: reg } => 0b00101000 @ s @ 0b0000
+
+    swi => 0b00110000 @ 0b0000 @ 0b0000
+    irt => 0b00110001 @ 0b0000 @ 0b0000
 
     imm.l { d: reg }, { i: i8 } => 0b1 @ d @ 0b000 @ i
     imm.u { d: reg }, { i: i8 } => 0b1 @ d @ 0b001 @ i
@@ -157,5 +170,11 @@
     ret => asm {
         pop ras
         jmp.l ras
+    }
+
+    sti { d: reg }, { s: reg } => asm {
+        st.l { d }, { s }
+        add  { d }, 1
+        st.u { d }, { s }
     }
 }

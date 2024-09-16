@@ -1,0 +1,7 @@
+
+
+#bank rom
+main:
+
+
+    ret
